@@ -135,7 +135,7 @@ AI 분석 결과 → 의료진 판독·서명 → 결과 공개 → 환자 결�
 | 최종 발표 PDF | [DUGN 최종 발표 자료 보기](https://drive.google.com/file/d/1jagyOOrqoHlLhwOtsjSue_Fl1Vzs5IBd/view?usp=drivesdk) |
 | 시연 하이라이트 (약 1분, 무음) | [DUGN 비식별 시연 영상 보기](https://drive.google.com/file/d/1wwTVWZjQudIwmc8xLDw1NEU_5TCeblzw/view) |
 
-원본 통합 시연영상은 화면에 이름·연락처가 나타나 별도로 비공개 보관했습니다. 링크된 영상은 해당 구간을 제외하고 음성을 제거한 발췌본입니다.
+전체 통합 시연영상의 개인 Drive 사본은 화면에 이름·연락처가 나타나 비공개로 두었습니다. 링크된 영상은 해당 구간을 제외하고 음성을 제거한 발췌본입니다.
 
 ## 07. 화면과 개발 증빙
 
