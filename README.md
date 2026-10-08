@@ -17,7 +17,7 @@
 
 > 이 저장소는 개인 취업 포트폴리오입니다. 팀의 전체 소스 코드를 복제하지 않고 제가 맡은 구현과 선택의 이유를 설명합니다.
 
-[최종 발표 자료](https://drive.google.com/file/d/1jagyOOrqoHlLhwOtsjSue_Fl1Vzs5IBd/view?usp=drivesdk) · [전체 시연영상 (접근 제한)](https://drive.google.com/file/d/1mQFj2CJv3jKBsEk-Uw4sgLknAnSkTGPL/view?usp=drivesdk) · [공개용 하이라이트](https://drive.google.com/file/d/1wwTVWZjQudIwmc8xLDw1NEU_5TCeblzw/view)
+[최종 발표 자료](https://drive.google.com/file/d/1jagyOOrqoHlLhwOtsjSue_Fl1Vzs5IBd/view?usp=drivesdk) · [전체 시연영상 (접근 제한)](https://drive.google.com/file/d/1mQFj2CJv3jKBsEk-Uw4sgLknAnSkTGPL/view?usp=drivesdk)
 
 ## 01. 팀 프로젝트 한눈에 보기
 
@@ -142,9 +142,8 @@ AI 분석 결과 → 의료진 판독·서명 → 결과 공개 → 환자 결�
 | --- | --- |
 | 최종 발표 PDF | [DUGN 최종 발표 자료 보기](https://drive.google.com/file/d/1jagyOOrqoHlLhwOtsjSue_Fl1Vzs5IBd/view?usp=drivesdk) |
 | 전체 통합 시연영상 (12분 59초) | [DUGN 전체 시연영상 보기](https://drive.google.com/file/d/1mQFj2CJv3jKBsEk-Uw4sgLknAnSkTGPL/view?usp=drivesdk) — 개인 Drive 사본, 접근 제한 |
-| 비식별 하이라이트 (약 1분, 무음) | [DUGN 공개용 시연 영상 보기](https://drive.google.com/file/d/1wwTVWZjQudIwmc8xLDw1NEU_5TCeblzw/view) |
 
-전체 영상에는 화면에 이름·연락처가 표시되는 구간이 있어 개인 사본은 비공개로 두었습니다. 외부 열람용으로는 해당 구간과 음성을 제외한 하이라이트를 이용할 수 있습니다.
+전체 영상에는 화면에 이름·연락처가 표시되는 구간이 있어 개인 Drive 사본은 접근 제한 상태로 두었습니다.
 
 ## 07. 회고
 
