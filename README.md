@@ -10,7 +10,7 @@
 
 > 이 저장소는 **개인 취업 포트폴리오**입니다. 팀의 Backend·Frontend 전체 소스 코드를 복제하지 않고, 제가 구현한 문제 해결 과정과 서비스 구조를 설명합니다.
 
-[최종 발표 자료](https://drive.google.com/file/d/1jagyOOrqoHlLhwOtsjSue_Fl1Vzs5IBd/view?usp=drivesdk) · [1분 시연 하이라이트](https://drive.google.com/file/d/1wwTVWZjQudIwmc8xLDw1NEU_5TCeblzw/view)
+[최종 발표 자료](https://drive.google.com/file/d/1jagyOOrqoHlLhwOtsjSue_Fl1Vzs5IBd/view?usp=drivesdk) · [전체 시연영상 (접근 제한)](https://drive.google.com/file/d/1mQFj2CJv3jKBsEk-Uw4sgLknAnSkTGPL/view?usp=drivesdk) · [공개용 하이라이트](https://drive.google.com/file/d/1wwTVWZjQudIwmc8xLDw1NEU_5TCeblzw/view)
 
 ## 01. 프로젝트 한눈에 보기
 
@@ -123,19 +123,17 @@ AI 분석 결과 → 의료진 판독·서명 → 결과 공개 → 환자 결�
 | Database | PostgreSQL |
 | 의료영상·파일 | DICOM, Orthanc, RustFS, boto3 |
 | 비동기·이벤트 | Celery, Django Channels, Redis |
-| 3D 데이터 처리 | SimpleITK, NumPy, SciPy, scikit-image, trimesh |
-| 서비스 클라이언트 | React Web, Flutter 태블릿·모바일 앱 **(팀 구현 범위)** |
+| 3D 데이터 처리 | Simple## 06. 최종 발표와 시연
 
-## 06. 최종 발표와 시연
-
-팀 최종 발표 자료와 시연 하이라이트를 연결했습니다. 발표 자료는 서비스 흐름, 시스템 구조, AI 분석 결과와 팀별 역할을 설명합니다. 공개용 영상은 의료진 Web의 XCA AI 분석·CT/3D 화면과 환자 앱의 결과 조회 화면을 발췌했습니다.
+팀 최종 발표 자료와 드라이브의 전체 통합 시연영상을 연결했습니다. 영상은 의료진 Web과 환자 앱을 잇는 시연 흐름을 보여줍니다.
 
 | 자료 | 링크 |
 | --- | --- |
 | 최종 발표 PDF | [DUGN 최종 발표 자료 보기](https://drive.google.com/file/d/1jagyOOrqoHlLhwOtsjSue_Fl1Vzs5IBd/view?usp=drivesdk) |
-| 시연 하이라이트 (약 1분, 무음) | [DUGN 비식별 시연 영상 보기](https://drive.google.com/file/d/1wwTVWZjQudIwmc8xLDw1NEU_5TCeblzw/view) |
+| 전체 통합 시연영상 (12분 59초) | [DUGN 전체 시연영상 보기](https://drive.google.com/file/d/1mQFj2CJv3jKBsEk-Uw4sgLknAnSkTGPL/view?usp=drivesdk) — 개인 Drive 사본, 접근 제한 |
+| 비식별 하이라이트 (약 1분, 무음) | [DUGN 공개용 시연 영상 보기](https://drive.google.com/file/d/1wwTVWZjQudIwmc8xLDw1NEU_5TCeblzw/view) |
 
-전체 통합 시연영상의 개인 Drive 사본은 화면에 이름·연락처가 나타나 비공개로 두었습니다. 링크된 영상은 해당 구간을 제외하고 음성을 제거한 발췌본입니다.
+전체 영상에는 화면에 이름·연락처가 표시되는 구간이 있어 개인 사본은 비공개로 두었습니다. 외부 열람용으로는 해당 구간과 음성을 제외한 하이라이트를 이용할 수 있습니다.
 
 ## 07. 화면과 개발 증빙
 
