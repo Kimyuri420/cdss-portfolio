@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="320" viewBox="0 0 1200 320" role="img" aria-labelledby="title desc">
+  <title id="title">김유리 개발 포트폴리오</title>
+  <desc id="desc">짙은 남색 배경에 백엔드, 데이터, React, Flutter 경험을 소개하는 표지</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#0B1222"/>
+      <stop offset=".55" stop-color="#102844"/>
+      <stop offset="1" stop-color="#133D58"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#53D6D3" stop-opacity=".28"/>
+      <stop offset="1" stop-color="#53D6D3" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="line" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#58C5E5" stop-opacity=".08"/>
+      <stop offset=".55" stop-color="#58C5E5" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#9AF2DC" stop-opacity=".85"/>
+    </linearGradient>
+    <clipPath id="round"><rect width="1200" height="320" rx="22"/></clipPath>
+  </defs>
+  <g clip-path="url(#round)">
+    <rect width="1200" height="320" fill="url(#bg)"/>
+    <circle cx="1010" cy="156" r="290" fill="url(#glow)"/>
+    <path d="M600 0H1200V320H600Z" fill="#102C49" opacity=".32"/>
+    <path d="M720 250C840 275 900 230 978 154S1090 70 1220 112" fill="none" stroke="url(#line)" stroke-width="2"/>
+    <path d="M702 283C833 303 926 264 1000 192S1108 116 1225 135" fill="none" stroke="url(#line)" stroke-width="1.4" opacity=".7"/>
+    <path d="M722 212C813 223 894 186 952 128S1074 44 1215 81" fill="none" stroke="url(#line)" stroke-width="1.2" opacity=".62"/>
+    <circle cx="978" cy="154" r="7" fill="#77E4DB"/>
+    <circle cx="978" cy="154" r="16" fill="none" stroke="#77E4DB" stroke-opacity=".35"/>
+    <circle cx="1067" cy="87" r="4.5" fill="#7ACAE9"/>
+    <circle cx="888" cy="222" r="4.5" fill="#7ACAE9"/>
+    <path d="M890 220L978 154L1067 87" fill="none" stroke="#8BDFE3" stroke-width="1" stroke-dasharray="4 8" opacity=".45"/>
+    <rect x="56" y="54" width="34" height="4" rx="2" fill="#6EDDD9"/>
+    <text x="102" y="61" fill="#A6DCE8" font-family="Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="3">KIM YURI · PORTFOLIO</text>
+    <text x="55" y="145" fill="#F5FBFF" font-family="Noto Sans CJK KR, Pretendard, Apple SD Gothic Neo, Arial, sans-serif" font-size="58" font-weight="700">김유리</text>
+    <text x="57" y="191" fill="#D9ECF4" font-family="Noto Sans CJK KR, Pretendard, Apple SD Gothic Neo, Arial, sans-serif" font-size="23">의료 데이터를 서비스로 연결하는 개발자</text>
+    <rect x="56" y="226" width="350" height="42" rx="21" fill="#C6F3F3" opacity=".12" stroke="#8CDDDD" stroke-opacity=".38"/>
+    <text x="78" y="253" fill="#B8F0ED" font-family="Arial, sans-serif" font-size="17" font-weight="600" letter-spacing=".4">Backend  ·  Data  ·  React  ·  Flutter</text>
+  </g>
+</svg>
