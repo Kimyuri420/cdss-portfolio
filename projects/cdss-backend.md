@@ -1,6 +1,6 @@
 # CDSS 백엔드 | 김유리
 
-[← 전체 프로젝트 보기](../README.md)
+[← 전체 프로젝트 보기](../README.md) · [Notion 화면·자료 보기](https://app.notion.com/p/3f60b387fad8816191acdb1eb0f7ac36)
 
 **프로젝트 기간:** 2026.08.10–2026.10.02 · **팀 구성:** 4명 (본인 포함)
 
@@ -153,6 +153,8 @@ AI 분석 결과 → 의료진 판독·서명 → 결과 공개 → 환자 결�
 
 ## 08. 구현 코드 살펴보기
 
+아래 코드는 담당 구현의 핵심 부분을 발췌한 것으로, 실행에 필요한 import와 주변 처리는 생략했습니다.
+
 ### 예약 슬롯 갱신과 기존 예약 충돌 검사
 
 **원본 파일:** `appointments/services.py`
@@ -170,9 +172,9 @@ def sync_doctor_availability_for_date(doctor, target_date):
     existing = {
         (slot.starts_at, slot.ends_at): slot
         for slot in DoctorAvailabilitySlot.objects.select_for_update().filter(
-            doctor = doctor,
-            starts_at__gte = day_start,
-            starts_at__lt = day_end,
+            doctor=doctor,
+            starts_at__gte=day_start,
+            starts_at__lt=day_end,
         )
     }
     # 이후 활성 예약 조회, 충돌 검사, 슬롯 생성·갱신 처리는 생략
@@ -180,8 +182,8 @@ def sync_doctor_availability_for_date(doctor, target_date):
 
 **설계 이유**
 
-- `transaction.atomic` 으로 슬롯 갱신을 하나의 트랜잭션으로 묶었습니다.
-- `select_for_update` 로 기존 슬롯을 잠가 동시 변경 시 같은 슬롯의 상태가 엇갈리는 위험을 줄였습니다.
+- `transaction.atomic`으로 슬롯 갱신을 하나의 트랜잭션으로 묶었습니다.
+- `select_for_update`로 기존 슬롯을 잠가 동시 변경 시 같은 슬롯의 상태가 엇갈리는 위험을 줄였습니다.
 - 요청·승인 상태의 예약이 변경된 일정과 충돌하면 `SCHEDULE_HAS_ACTIVE_RESERVATIONS` 오류를 반환했습니다.
 - 변경된 일정에서 제외된 슬롯은 `BLOCKED` 상태로 전환했습니다.
 
