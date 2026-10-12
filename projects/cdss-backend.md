@@ -214,6 +214,59 @@ def released_result(patient, result_id):
 - `withdrawn_at`이 없는 결과만 조회해 공개가 철회된 보고서를 제외했습니다.
 - 환자용 응답은 서명·공개된 보고서 버전의 스냅샷을 기준으로 구성했습니다.
 - 이미지 조회 API에서도 같은 공개 조건을 다시 확인했습니다.
+
+### CT 물리 좌표를 반영한 3D 메시 생성
+
+**원본 파일:** `ai/ccta_rendering.py`
+
+분할 마스크를 CT 기준 영상에 정렬한 뒤, 영상의 간격·방향·원점을 반영해 3D 메시를 생성했습니다. 여러 구조물이 같은 환자의 좌표계에 놓이도록 구성했습니다.
+
+**핵심 코드 발췌**
+
+```python
+spacing_xyz = image.GetSpacing()
+
+vertices, faces, _normals, _values = marching_cubes(
+    mask,
+    level=0.5,
+    spacing=(spacing_xyz[2], spacing_xyz[1], spacing_xyz[0]),
+)
+
+# 배열의 Z, Y, X 순서를 물리 좌표의 X, Y, Z 순서로 변환
+vertices = vertices[:, [2, 1, 0]]
+
+direction = np.asarray(
+    image.GetDirection(), dtype=float
+).reshape(3, 3)
+origin = np.asarray(image.GetOrigin(), dtype=float)
+
+vertices = vertices @ direction.T + origin
+
+mesh = trimesh.Trimesh(
+    vertices=vertices,
+    faces=faces,
+    process=False,
+)
+
+# 시각적 smoothing은 심장·대동맥에만 적용
+if name in {"heart", "aorta"}:
+    trimesh.smoothing.filter_laplacian(
+        mesh,
+        iterations=5,
+        volume_constraint=True,
+    )
+```
+
+**설계 이유**
+
+- `marching_cubes`에 CT의 voxel 간격을 반영해 구조물의 크기를 맞췄습니다.
+- 배열의 축 순서를 변환하고 영상의 방향·원점을 적용해 정점을 물리 좌표로 배치했습니다.
+- 심장·대동맥에만 시각적 smoothing을 적용하고, 가는 관상동맥과 작은 석회화에는 적용하지 않았습니다.
+- 생성된 구조물을 하나의 장면으로 묶어 GLB 파일로 제공했습니다.
+
+**담당 범위**
+
+이 코드는 Backend의 3D 데이터 생성 과정입니다. 화면의 3D Viewer 구현과는 구분합니다.
 ---
 
 **Repository scope:** 개인 포트폴리오 문서와 발표·시연 자료 링크. 팀의 전체 코드 저장소와는 별개입니다.
