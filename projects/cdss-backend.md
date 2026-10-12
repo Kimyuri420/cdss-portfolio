@@ -2,6 +2,8 @@
 
 [← 전체 프로젝트 보기](../README.md)
 
+**프로젝트 기간:** 2026.08.10–2026.10.02 · **팀 구성:** 4명 (본인 포함)
+
 ### AI 기반 심혈관 진료 의사결정 지원 시스템 (DUGN)
 
 저는 이 팀 프로젝트에서 **Django REST API와 의료 데이터 처리**를 맡았습니다. 환자 예약 시간을 만들고 충돌을 검증하는 로직, 의료진의 판독·서명 이후에만 환자 결과를 제공하는 API, 의료영상과 CT 분할 결과를 서비스에 연결하는 처리를 구현했습니다.
@@ -150,26 +152,34 @@ AI 분석 결과 → 의료진 판독·서명 → 결과 공개 → 환자 결�
 이 프로젝트에서는 데이터를 어떤 화면에 보낼지에 앞서 **누가, 언제, 어떤 상태의 결과를 볼 수 있는지**를 정하는 일이 중요했습니다. 예약에는 근무 일정과 기존 예약의 충돌 검사가, 환자 결과에는 의료진 서명과 공개 상태가 필요했습니다. 의료영상과 3D 결과를 서비스에 연결하면서는 저장소의 역할과 좌표계의 일관성도 함께 다뤘습니다.
 
 ## 08. 구현 코드 살펴보기
+
 ### 예약 슬롯 갱신과 기존 예약 충돌 검사
-활성 진료 일정에서 30분 단위 예약 슬롯을 생성하고, 점심시간과 휴무를 반영했습니다. 일정 변경으로 기존 활성 에약이 예약 가능 시간에서 벗어나면 오류를 반환하도록 구성했습니다.
-** 핵심 코드 발췌 **
+
+**원본 파일:** `appointments/services.py`
+
+활성 진료 일정에서 30분 단위 예약 슬롯을 생성하고, 점심시간과 휴무를 반영했습니다. 일정 변경으로 기존 활성 예약이 예약 가능 시간에서 벗어나면 오류를 반환하도록 구성했습니다.
+
+**핵심 코드 발췌**
+
 ```python
 @transaction.atomic
-def sync_doctor_acailability_for_data(doctor, target_date):
+def sync_doctor_availability_for_date(doctor, target_date):
     wanted = _wanted_slot_ranges(doctor, target_date)
     day_start, day_end = _day_bounds(target_date)
 
     existing = {
         (slot.starts_at, slot.ends_at): slot
-        for slot iin DoctorAvailabilitySlot.objects.select_for_update().filter(
+        for slot in DoctorAvailabilitySlot.objects.select_for_update().filter(
             doctor = doctor,
             starts_at__gte = day_start,
             starts_at__lt = day_end,
         )
     }
-    # 이후 활성 예약 조회, 충동 검사, 슬롯 생성·갱신 처리는 생략
+    # 이후 활성 예약 조회, 충돌 검사, 슬롯 생성·갱신 처리는 생략
 ```
-** 설계 이유 **
+
+**설계 이유**
+
 - `transaction.atomic` 으로 슬롯 갱신을 하나의 트랜잭션으로 묶었습니다.
 - `select_for_update` 로 기존 슬롯을 잠가 동시 변경 시 같은 슬롯의 상태가 엇갈리는 위험을 줄였습니다.
 - 요청·승인 상태의 예약이 변경된 일정과 충돌하면 `SCHEDULE_HAS_ACTIVE_RESERVATIONS` 오류를 반환했습니다.
@@ -267,6 +277,7 @@ if name in {"heart", "aorta"}:
 **담당 범위**
 
 이 코드는 Backend의 3D 데이터 생성 과정입니다. 화면의 3D Viewer 구현과는 구분합니다.
+
 ---
 
 **Repository scope:** 개인 포트폴리오 문서와 발표·시연 자료 링크. 팀의 전체 코드 저장소와는 별개입니다.
