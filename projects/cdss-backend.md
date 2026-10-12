@@ -149,6 +149,31 @@ AI 분석 결과 → 의료진 판독·서명 → 결과 공개 → 환자 결�
 
 이 프로젝트에서는 데이터를 어떤 화면에 보낼지에 앞서 **누가, 언제, 어떤 상태의 결과를 볼 수 있는지**를 정하는 일이 중요했습니다. 예약에는 근무 일정과 기존 예약의 충돌 검사가, 환자 결과에는 의료진 서명과 공개 상태가 필요했습니다. 의료영상과 3D 결과를 서비스에 연결하면서는 저장소의 역할과 좌표계의 일관성도 함께 다뤘습니다.
 
+## 08. 구현 코드 살펴보기
+### 예약 슬롯 갱신과 기존 예약 충돌 검사
+활성 진료 일정에서 30분 단위 예약 슬롯을 생성하고, 점심시간과 휴무를 반영했습니다. 일정 변경으로 기존 활성 에약이 예약 가능 시간에서 벗어나면 오류를 반환하도록 구성했습니다.
+** 핵심 코드 발췌 **
+```python
+@transaction.atomic
+def sync_doctor_acailability_for_data(doctor, target_date):
+    wanted = _wanted_slot_ranges(doctor, target_date)
+    day_start, day_end = _day_bounds(target_date)
+
+    existing = {
+        (slot.starts_at, slot.ends_at): slot
+        for slot iin DoctorAvailabilitySlot.objects.select_for_update().filter(
+            doctor = doctor,
+            starts_at__gte = day_start,
+            starts_at__lt = day_end,
+        )
+    }
+    # 이후 활성 예약 조회, 충동 검사, 슬롯 생성·갱신 처리는 생략
+```
+** 설계 이유 **
+- `transaction.atomic` 으로 슬롯 갱신을 하나의 트랜잭션으로 묶었습니다.
+- `select_for_update` 로 기존 슬롯을 잠가 동시 변경 시 같은 슬롯의 상태가 엇갈리는 위험을 줄였습니다.
+- 요청·승인 상태의 예약이 변경된 일정과 충돌하면 `SCHEDULE_HAS_ACTIVE_RESERVATIONS` 오류를 반환했습니다.
+- 변경된 일정에서 제외된 슬롯은 `BLOCKED` 상태로 전환했습니다.
 ---
 
 **Repository scope:** 개인 포트폴리오 문서와 발표·시연 자료 링크. 팀의 전체 코드 저장소와는 별개입니다.
