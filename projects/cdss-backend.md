@@ -174,6 +174,46 @@ def sync_doctor_acailability_for_data(doctor, target_date):
 - `select_for_update` 로 기존 슬롯을 잠가 동시 변경 시 같은 슬롯의 상태가 엇갈리는 위험을 줄였습니다.
 - 요청·승인 상태의 예약이 변경된 일정과 충돌하면 `SCHEDULE_HAS_ACTIVE_RESERVATIONS` 오류를 반환했습니다.
 - 변경된 일정에서 제외된 슬롯은 `BLOCKED` 상태로 전환했습니다.
+
+### 의료진 서명·공개 상태에 따른 환자 결과 조회
+
+**원본 파일:** `reports/patient_result_views.py`
+
+환자 본인의 검사 결과 중 의료진이 최종 서명하고 공개한 보고서만 조회하도록 구성했습니다. 공개가 철회된 결과도 조회 대상에서 제외했습니다.
+
+**핵심 코드 발췌**
+
+```python
+def released_result(patient, result_id):
+    return (
+        ResultRelease.objects.select_related(
+            "signoff",
+            "signoff__doctor",
+            "signoff__doctor__department",
+            "report",
+            "report__report_version",
+            "report__report_version__medical_result",
+        )
+        .filter(
+            report__report_version__medical_result_id=result_id,
+            report__report_version__medical_result__patient=patient,
+            report__status__in=[Report.Status.ACTIVE, "FINAL"],
+            release_status=ResultRelease.ReleaseStatus.RELEASED,
+            withdrawn_at__isnull=True,
+            signoff__signoff_type="FINAL",
+        )
+        .order_by("-released_at", "-id")
+        .first()
+    )
+```
+
+**설계 이유**
+
+- 환자 조건을 조회에 포함해 다른 환자의 결과가 반환되지 않도록 했습니다.
+- 최종 서명(`FINAL`)과 결과 공개(`RELEASED`)를 함께 확인했습니다.
+- `withdrawn_at`이 없는 결과만 조회해 공개가 철회된 보고서를 제외했습니다.
+- 환자용 응답은 서명·공개된 보고서 버전의 스냅샷을 기준으로 구성했습니다.
+- 이미지 조회 API에서도 같은 공개 조건을 다시 확인했습니다.
 ---
 
 **Repository scope:** 개인 포트폴리오 문서와 발표·시연 자료 링크. 팀의 전체 코드 저장소와는 별개입니다.
