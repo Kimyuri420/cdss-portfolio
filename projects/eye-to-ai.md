@@ -1,6 +1,6 @@
 # EYE TO AI | 안구 데이터 기반 만성질환 위험 분석
 
-[← 전체 프로젝트 보기](../README.md)
+[← 전체 프로젝트 보기](../README.md) · [Notion 화면·자료 보기](https://app.notion.com/p/3f60b387fad8810cbd0bfe8e7f02b650)
 
 **프로젝트 기간:** 1주 · **팀 구성:** 5명 (본인 포함)
 
