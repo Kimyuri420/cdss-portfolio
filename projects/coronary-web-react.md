@@ -1,6 +1,6 @@
 # 관상동맥 협착 탐지·XAI 판독 지원 웹 | React
 
-[← 전체 프로젝트 보기](../README.md)
+[← 전체 프로젝트 보기](../README.md) · [Notion 화면·자료 보기](https://app.notion.com/p/3f60b387fad88166a5fadcc74d35c28f)
 
 **프로젝트 기간:** 3일 · **팀 구성:** 4명 (본인 포함)
 
