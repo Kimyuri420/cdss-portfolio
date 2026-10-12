@@ -1,6 +1,6 @@
 # 맥(脈)가이버 | Flutter 의료진 앱
 
-[← 전체 프로젝트 보기](../README.md)
+[← 전체 프로젝트 보기](../README.md) · [Notion 화면·자료 보기](https://app.notion.com/p/3f60b387fad881a6ac01e8f2871eb6a2)
 
 **프로젝트 기간:** 1주 · **팀 구성:** 4명 (본인 포함)
 
