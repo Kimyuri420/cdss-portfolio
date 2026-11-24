@@ -1408,6 +1408,40 @@ a { color:#26428B; }
   .plate .plate-svg { padding: 10px 14px; }
 }
 
+
+/* Hero redesign — scoped to the introductory section */
+section.intro { position:relative; background:radial-gradient(ellipse at 90% 0%,rgba(81,106,200,.35),transparent 55%),linear-gradient(125deg,#0F1939,#14254D 70%,#1D356A) !important; padding:0 0 30px; }
+section.intro::before { display:none; }
+.intro-layout { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,1fr); align-items:center; gap:clamp(28px,5vw,64px); padding-block:76px 48px; }
+.intro-main,.intro-feature { min-width:0; }
+.intro-kicker { display:flex; align-items:center; gap:12px; margin:0; color:#E3AF64; font:700 12px/1.5 Consolas,monospace; letter-spacing:.08em; }
+.intro-kicker::before { content:""; width:28px; height:2px; background:#E3AF64; flex-shrink:0; }
+.intro-main .intro-title { margin:24px 0 0; color:#fff; font-size:clamp(36px,3.7vw,58px); font-weight:850; line-height:1.25; letter-spacing:-.06em; word-break:keep-all; }
+.intro-title span { display:block; color:#B8CAFF; }
+.intro-description { max-width:490px; margin:24px 0 0; color:#CDD8EF; font-size:16px; line-height:1.9; word-break:keep-all; }
+.intro-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:30px; }
+.intro-button { display:inline-flex; align-items:center; justify-content:center; min-height:50px; padding:13px 22px; border:1px solid transparent; border-radius:9px; font-size:14px; font-weight:750; text-decoration:none; transition:background .2s ease,transform .2s ease; }
+.intro-primary { color:#fff; background:#516AC8; border-color:#7187D6; }
+.intro-primary:hover { color:#fff; background:#6079D8; transform:translateY(-2px); }
+.intro-secondary { color:#fff; background:transparent; border-color:#8195C4; }
+.intro-secondary:hover { color:#fff; background:rgba(255,255,255,.1); }
+.intro-feature { padding:30px; color:#fff; background:rgba(255,255,255,.055); border:1px solid rgba(184,202,255,.28); border-radius:20px; box-shadow:0 20px 50px rgba(0,0,0,.15); }
+.intro-feature-label { margin:0; color:#E3AF64; font:700 11px/1.5 Consolas,monospace; letter-spacing:.08em; }
+.intro-feature h2 { margin:10px 0 0; color:#fff; font-size:48px; font-weight:850; line-height:1.2; letter-spacing:-.05em; }
+.intro-feature-description { margin:8px 0 0; color:#D9E3FC; font-size:15px; }
+.intro-role { display:inline-block; margin-top:16px; padding:5px 10px; color:#C9D8FF; background:rgba(81,106,200,.16); border:1px solid rgba(184,202,255,.25); border-radius:5px; font-size:11px; font-weight:700; }
+.intro-feature-list { margin-top:22px; }
+.intro-feature-list > div { display:flex; align-items:center; gap:14px; padding:13px 0; border-top:1px solid rgba(255,255,255,.12); }
+.intro-feature-list span { color:#E3AF64; font:12px Consolas,monospace; }
+.intro-feature-list strong { color:#F3F6FF; font-size:14px; font-weight:650; }
+.intro-feature-link { display:flex; align-items:center; justify-content:space-between; gap:12px; min-height:48px; margin-top:16px; padding:12px 18px; color:#0F1939; background:#E3AF64; border-radius:8px; font-size:14px; font-weight:800; text-decoration:none; transition:background .2s ease; }
+.intro-feature-link:hover { color:#0F1939; background:#F0C787; }
+.intro-button:focus-visible,.intro-feature-link:focus-visible { outline:3px solid #fff; outline-offset:4px; }
+section.intro .hero-skill-ribbon { margin-top:0; background:linear-gradient(105deg,#F9F5EB,#E3EAF8); }
+@media(max-width:900px) { .intro-layout { grid-template-columns:1fr; gap:32px; padding-block:48px 32px; } .intro-main .intro-title { font-size:clamp(34px,6vw,52px); } .intro-feature { padding:26px; } }
+@media(max-width:600px) { .intro-layout { padding-block:36px 28px; } .intro-kicker { font-size:10px; } .intro-main .intro-title { font-size:clamp(30px,7.5vw,42px); } .intro-description { font-size:14px; } .intro-actions { display:grid; grid-template-columns:1fr; } .intro-feature { padding:22px; } .intro-feature h2 { font-size:38px; } }
+@media(prefers-reduced-motion:reduce) { .intro-button,.intro-feature-link { transition:none; } .intro-primary:hover { transform:none; } }
+
 </style>
 </head>
 
@@ -1436,92 +1470,28 @@ a { color:#26428B; }
 
   <main id="main">
     <section class="intro" aria-labelledby="hero-title">
-      <div class="wrap hero">
-        <div>
-          <p class="overline">BACKEND DEVELOPER · MEDICAL IT</p>
-          <h1 id="hero-title">신입 백엔드 개발자<span class="name">김유리입니다.</span></h1>
-          <p class="intro-copy">
-            Django REST Framework를 중심으로 API와 데이터 흐름을 구현했습니다.
-            의료진·환자 서비스를 연결하는 백엔드 전반을 담당한 경험을 소개합니다.
-          </p>
-          <div class="actions">
-            <a class="btn primary" href="#projects">프로젝트 보기</a>
-            <a class="btn" href="https://github.com/Kimyuri420">GitHub</a>
+      <div class="wrap intro-layout">
+        <div class="intro-main">
+          <p class="intro-kicker">BACKEND DEVELOPER · MEDICAL IT</p>
+          <h1 id="hero-title" class="intro-title">API부터 데이터까지,<span>서비스의 기반을<br>만듭니다.</span></h1>
+          <p class="intro-description">안녕하세요. 신입 백엔드 개발자 김유리입니다. Django REST Framework를 중심으로 API 설계, 데이터베이스 관리, 의료영상 및 서버 연동을 경험했습니다.</p>
+          <div class="intro-actions">
+            <a class="intro-button intro-primary" href="#projects">대표 프로젝트 보기 ↓</a>
+            <a class="intro-button intro-secondary" href="https://app.notion.com/p/3f70b387fad880f3942ffb8cb4d343b5" target="_blank" rel="noopener noreferrer">이력서 보기 ↗</a>
           </div>
         </div>
-
-        <figure class="plate">
-          <div class="plate-head">
-            <span class="plate-tag">DUGN · 기술 구현 사례</span>
-            <span class="plate-meta">MEDICAL IMAGING</span>
+        <aside class="intro-feature" aria-label="대표 프로젝트 DUGN">
+          <p class="intro-feature-label">FEATURED PROJECT / 01</p>
+          <h2>DUGN</h2>
+          <p class="intro-feature-description">심혈관 임상 의사결정 지원 시스템</p>
+          <span class="intro-role">BACKEND · 4인 팀 프로젝트</span>
+          <div class="intro-feature-list">
+            <div><span>01</span><strong>예약 충돌 방지</strong></div>
+            <div><span>02</span><strong>의료 데이터 공개 흐름 설계</strong></div>
+            <div><span>03</span><strong>의료영상 및 저장소 연동</strong></div>
           </div>
-          <svg class="plate-svg" viewBox="-28 -4 576 244" role="img"
-            aria-labelledby="coord-title coord-desc" xmlns="http://www.w3.org/2000/svg">
-            <title id="coord-title">CT와 분할 마스크 정렬 과정</title>
-            <desc id="coord-desc">
-              분할 마스크를 CT 기준 격자에 정렬하고, 물리 좌표를 반영해 3D 파일을 만드는 과정을
-              도식으로 표현했습니다.
-            </desc>
-            <defs>
-              <linearGradient id="coord-face" x1="0" x2="1" y1="0" y2="1">
-                <stop offset="0" stop-color="#AEC7DC" stop-opacity=".19" />
-                <stop offset="1" stop-color="#AEC7DC" stop-opacity=".035" />
-              </linearGradient>
-              <linearGradient id="mesh-face" x1="0" x2="1" y1="0" y2="1">
-                <stop offset="0" stop-color="#F3D78D" stop-opacity=".25" />
-                <stop offset="1" stop-color="#F3D78D" stop-opacity=".04" />
-              </linearGradient>
-              <g id="coord-plane">
-                <path d="M0 69 110 23 191 60 80 106Z" fill="url(#coord-face)" stroke="var(--wire)" />
-                <path d="M22 60 102 97m-58-46 80 37m-58-46 80 37m-58-46 80 37M20 78l110-46M40 87l110-46M60 96l110-46"
-                  fill="none" stroke="var(--wire)" opacity=".34" />
-              </g>
-            </defs>
-
-            <g transform="translate(37 26)" stroke-width="1.2" stroke-linejoin="round">
-              <use href="#coord-plane" transform="translate(0 73)" opacity=".59" />
-              <use href="#coord-plane" transform="translate(0 43)" opacity=".76" />
-              <path d="M0 69v73M80 106v73M110 23v73M191 60v73"
-                stroke="var(--wire)" stroke-dasharray="3 5" opacity=".41" />
-              <use href="#coord-plane" transform="translate(0 13)" />
-              <path d="m57 75 19-14 27-8 25 3 16 10-10 11-22 6-12 9-24-3Z"
-                fill="var(--butter)" fill-opacity=".22" stroke="var(--butter)" stroke-width="1.8" />
-              <path d="M76 61v61m68-56v61m-44-35v61"
-                fill="none" stroke="var(--butter)" stroke-dasharray="3 4" opacity=".59" />
-              <circle cx="76" cy="122" r="2.8" fill="var(--butter)" />
-              <circle cx="144" cy="127" r="2.8" fill="var(--butter)" />
-              <circle cx="100" cy="153" r="2.8" fill="var(--butter)" />
-            </g>
-
-            <g fill="none" stroke="var(--wire)" stroke-width="1.4">
-              <path d="M250 107h55" stroke-dasharray="3 5" />
-              <path d="m300 102 5 5-5 5" stroke-linecap="round" stroke-linejoin="round" />
-            </g>
-
-            <g transform="translate(326 32)" fill="none" stroke="var(--wire)"
-              stroke-width="1.25" stroke-linejoin="round">
-              <path d="m0 135 65-29 94 49-69 29Z" fill="url(#coord-face)" opacity=".65" />
-              <path d="m18 144 66-29m-46 39 66-29m-47 39 66-29m-47 39 67-29M17 128l92 48M34 120l92 49M50 113l93 48"
-                opacity=".34" />
-              <path d="M17 76 29 43 63 19 102 29 132 58 134 93 117 118 85 139 45 130 21 106Z"
-                fill="url(#mesh-face)" stroke="var(--butter)" stroke-width="1.6" />
-              <path d="m29 43 33 8 1-32 28 27 11-17m-11 17 41 12-22 20 24 15-36 12 19 13m-19-13-13 34-22-28-18 19m18-19-42-5 19-23-23-7 45-25-22 32 23 28 12-33-35 5m22-32 13 27 16-32 19 32-35 0 23 27-35 6m35-6 12-27"
-                stroke="var(--butter)" opacity=".83" />
-              <circle cx="75" cy="78" r="3.4" fill="var(--butter)" stroke="none" />
-              <circle cx="17" cy="76" r="2.1" fill="var(--butter)" stroke="none" />
-              <circle cx="132" cy="58" r="2.1" fill="var(--butter)" stroke="none" />
-            </g>
-
-            <g fill="var(--lit)" font-family="ui-monospace, Consolas, monospace" font-size="13" letter-spacing="1.1">
-              <text x="133" y="221" text-anchor="middle">CT + MASK</text>
-              <text x="401" y="221" text-anchor="middle">3D GLB</text>
-            </g>
-          </svg>
-          <figcaption class="plate-foot">
-            <strong>의료영상 데이터 처리</strong>
-            <span>CT·분할 마스크 정렬 및 3D 연계 사례</span>
-          </figcaption>
-        </figure>
+          <a class="intro-feature-link" href="./projects/dugn/index.html">백엔드 구현 바로 보기 <span>→</span></a>
+        </aside>
       </div>
       <div class="wrap hero-skill-ribbon" aria-label="백엔드 개발 핵심 역량">
         <div class="ribbon-intro">
