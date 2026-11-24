@@ -1,0 +1,2736 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DUGN | Backend Engineering Portfolio</title>
+
+    <meta name="description" content="DUGN 심혈관 CDSS 백엔드 개발 프로젝트">
+
+    <link rel="stylesheet" href="./style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="./script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- 상단 네비게이션 -->
+    <header class="topbar">
+        <a href="../../index.html" class="brand">
+            YURI<span>.</span>
+            <small>ENGINEERING PORTFOLIO</small>
+        </a>
+
+        <div class="topbar-actions">
+            <a href="https://github.com/Kimyuri420/cdss-portfolio/tree/main/projects/dugn"
+               target="_blank" rel="noopener noreferrer">
+                <i data-lucide="github"></i>
+                Documentation
+            </a>
+
+            <a href="../../index.html" class="back-link">
+                <i data-lucide="arrow-left"></i>
+                Back to Home
+            </a>
+        </div>
+    </header>
+
+    <div class="page-layout">
+
+        <!-- 좌측 고정 목차 -->
+        <aside class="sidebar">
+
+            <div class="sidebar-heading">
+                <span>CASE STUDY / 01</span>
+                <h2>DUGN<span>.</span></h2>
+                <p>Backend Engineering</p>
+            </div>
+
+            <nav class="section-nav" aria-label="프로젝트 목차">
+
+                <a href="#overview" class="nav-link active">
+                    <span>00</span> Overview
+                </a>
+
+                <a href="#architecture" class="nav-link">
+                    <span>01</span> Architecture
+                </a>
+
+                <a href="#backend" class="nav-link">
+                    <span>02</span> Backend & API
+                </a>
+
+                <a href="#medical-data" class="nav-link">
+                    <span>03</span> Medical Data & 3D
+                </a>
+
+                <a href="#infrastructure" class="nav-link">
+                    <span>04</span> Infrastructure
+                </a>
+
+                <a href="#troubleshooting" class="nav-link">
+                    <span>05</span> Troubleshooting
+                </a>
+
+                <a href="#validation" class="nav-link">
+                    <span>06</span> Validation
+                </a>
+
+            </nav>
+
+            <div class="sidebar-footer">
+                <span class="status-dot"></span>
+                PROJECT COMPLETED
+                <p>October 2026</p>
+            </div>
+
+        </aside>
+
+        <!-- 메인 콘텐츠 -->
+        <main class="main-content">
+
+            <!-- 00. 프로젝트 소개 -->
+            <section id="overview" class="section hero">
+
+                <div class="eyebrow">
+                    FEATURED PROJECT
+                    <span></span>
+                    MEDICAL IT
+                </div>
+
+                <h1 class="hero-title">DUGN<span>.</span></h1>
+
+                <h2 class="hero-subtitle">
+                    Cardiovascular CDSS Backend
+                </h2>
+
+                <p class="hero-description">
+                    의료 데이터의 정합성과 접근 권한을 고려하여,
+                    환자 예약부터 AI 분석, 의료진 판독 및 결과 공개까지
+                    하나의 서비스 흐름으로 연결한 심혈관 진료 의사결정 지원 시스템입니다.
+                </p>
+
+                <div class="tech-stack">
+                    <span>Python</span>
+                    <span>Django</span>
+                    <span>PostgreSQL</span>
+                    <span>Orthanc</span>
+                    <span>RustFS</span>
+                    <span>Celery</span>
+                    <span>Docker</span>
+                    <span>GCP</span>
+                </div>
+
+                <div class="project-meta">
+
+                    <article class="meta-card">
+                        <i data-lucide="calendar-days"></i>
+                        <span>PERIOD</span>
+                        <strong>2026.08 — 10</strong>
+                        <p>08.10 ~ 10.02</p>
+                    </article>
+
+                    <article class="meta-card">
+                        <i data-lucide="users"></i>
+                        <span>TEAM</span>
+                        <strong>4 Members</strong>
+                        <p>Team Project</p>
+                    </article>
+
+                    <article class="meta-card">
+                        <i data-lucide="server"></i>
+                        <span>MY ROLE</span>
+                        <strong>Backend</strong>
+                        <p>API & Medical Data</p>
+                    </article>
+
+                </div>
+
+                <!-- 의료 서비스 흐름 -->
+                <div class="workflow-panel">
+
+                    <div class="panel-heading">
+                        <span>CLINICAL WORKFLOW</span>
+                        <i data-lucide="activity"></i>
+                    </div>
+
+                    <div class="workflow">
+
+                        <div class="workflow-node">
+                            <i data-lucide="scan"></i>
+                            <strong>CT / 검사</strong>
+                            <small>Data Acquisition</small>
+                        </div>
+
+                        <div class="workflow-arrow">→</div>
+
+                        <div class="workflow-node">
+                            <i data-lucide="brain-circuit"></i>
+                            <strong>AI 분석</strong>
+                            <small>AI Processing</small>
+                        </div>
+
+                        <div class="workflow-arrow">→</div>
+
+                        <div class="workflow-node">
+                            <i data-lucide="file-check"></i>
+                            <strong>의료진 서명</strong>
+                            <small>Clinical Signoff</small>
+                        </div>
+
+                        <div class="workflow-arrow">→</div>
+
+                        <div class="workflow-node">
+                            <i data-lucide="smartphone"></i>
+                            <strong>환자 결과 공개</strong>
+                            <small>Result Release</small>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- 핵심 담당 영역 -->
+                <div class="contribution-grid">
+
+                    <article class="feature-card">
+                        <i data-lucide="code-2"></i>
+                        <h3>Backend Engineering</h3>
+                        <p>REST API, 예약 관리, 의료 업무 로직 및 접근 제어</p>
+                    </article>
+
+                    <article class="feature-card">
+                        <i data-lucide="database"></i>
+                        <h3>Medical Data</h3>
+                        <p>데이터 특성에 따른 저장소 분리 및 의료영상 연동</p>
+                    </article>
+
+                    <article class="feature-card">
+                        <i data-lucide="box"></i>
+                        <h3>3D Processing</h3>
+                        <p>CT·Mask 공간 좌표 정렬 및 GLB 데이터 생성</p>
+                    </article>
+
+                </div>
+
+            </section>
+
+            <!-- 01. 시스템 아키텍처 -->
+            <section id="architecture" class="section">
+
+                <div class="section-heading">
+                    <span class="section-number">01 / ARCHITECTURE</span>
+                    <h2>System Architecture</h2>
+                    <p>데이터의 특성과 서비스 역할을 고려한 시스템 설계</p>
+                </div>
+                <!-- DUGN Actual System Architecture -->
+
+                <div id="architecture-diagram" class="diagram-panel">
+
+                    <div class="panel-heading">
+                        <span>DUGN SYSTEM ARCHITECTURE</span>
+                        <i data-lucide="network"></i>
+                    </div>
+
+                    <p class="architecture-caption">
+                        Multi-service Clinical Decision Support System
+                    </p>
+
+                    <div class="dugn-system">
+
+                        <div class="system-main">
+
+                            <!-- 01 ~ 03. Top Layer -->
+
+                            <div class="system-top-grid">
+
+                                <!-- Client Layer -->
+
+                                <article class="system-layer">
+
+                                    <div class="system-layer-heading">
+                                        <span>01</span>
+                                        <h4>Client Layer</h4>
+                                        <small>사용자 인터페이스</small>
+                                    </div>
+
+                                    <div class="system-layer-body">
+
+                                        <div class="system-node">
+                                            <i data-lucide="monitor"></i>
+                                            <strong>Web</strong>
+                                            <small>React</small>
+                                            <p>의료진 서비스</p>
+                                        </div>
+
+                                        <div class="system-node">
+                                            <i data-lucide="smartphone"></i>
+                                            <strong>Mobile</strong>
+                                            <small>Flutter</small>
+                                            <p>환자 서비스</p>
+                                        </div>
+
+                                    </div>
+
+                                </article>
+
+
+                                <!-- API & Auth Layer -->
+
+                                <article class="system-layer">
+
+                                    <div class="system-layer-heading">
+                                        <span>02</span>
+                                        <h4>API & Auth Layer</h4>
+                                        <small>인증 · API · 비즈니스 로직</small>
+                                    </div>
+
+                                    <div class="system-layer-body">
+
+                                        <div class="system-node">
+                                            <i data-lucide="shield-check"></i>
+                                            <strong>Caddy</strong>
+                                            <small>HTTPS / TLS</small>
+                                            <p>Reverse Proxy</p>
+                                        </div>
+
+                                        <div class="system-node system-core">
+                                            <i data-lucide="server"></i>
+                                            <strong>Django</strong>
+                                            <small>REST API</small>
+                                            <p>JWT · RBAC · ORM</p>
+                                        </div>
+
+                                    </div>
+
+                                </article>
+
+
+                                <!-- Common Services -->
+
+                                <article class="system-layer">
+
+                                    <div class="system-layer-heading">
+                                        <span>03</span>
+                                        <h4>Common Services</h4>
+                                        <small>공통 서비스</small>
+                                    </div>
+
+                                    <div class="common-services">
+
+                                        <div class="common-node">
+                                            <i data-lucide="users"></i>
+                                            <div>
+                                                <strong>사용자 / 환자 관리</strong>
+                                                <small>계정 및 환자 정보</small>
+                                            </div>
+                                        </div>
+
+                                        <div class="common-node">
+                                            <i data-lucide="lock-keyhole"></i>
+                                            <div>
+                                                <strong>권한 관리</strong>
+                                                <small>JWT / RBAC</small>
+                                            </div>
+                                        </div>
+
+                                        <div class="common-node">
+                                            <i data-lucide="calendar-days"></i>
+                                            <div>
+                                                <strong>예약 / 검사 관리</strong>
+                                                <small>Encounter · Schedule</small>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </article>
+
+                            </div>
+
+
+                            <!-- Data Flow Connector -->
+
+                            <div class="system-connector">
+                                <span>API Request & Service Integration</span>
+                            </div>
+
+
+                            <!-- 04. AI Execution Layer -->
+
+                            <article class="system-layer ai-execution-layer">
+
+                                <div class="system-layer-heading">
+                                    <span>04</span>
+                                    <h4>AI Execution Layer</h4>
+                                    <small>분석 종류별 AI 처리 흐름</small>
+                                </div>
+
+                                <div class="ai-service-grid">
+
+                                    <!-- DUGN SCREEN -->
+
+                                    <article class="ai-service screen-service">
+
+                                        <div class="ai-service-heading">
+
+                                            <i data-lucide="heart-pulse"></i>
+
+                                            <span>CLINICAL AI</span>
+
+                                            <h3>DUGN SCREEN</h3>
+
+                                            <p>임상 기반 CAD 위험도 선별</p>
+
+                                        </div>
+
+                                        <div class="ai-pipeline">
+
+                                            <div class="ai-node input-node">
+                                                <span>INPUT</span>
+                                                <strong>임상 데이터</strong>
+                                                <small>문진 · 임상 정보</small>
+                                            </div>
+
+                                            <div class="ai-arrow"></div>
+
+                                            <div class="ai-node queue-node">
+                                                <span>MESSAGE BROKER</span>
+                                                <strong>RabbitMQ</strong>
+                                                <small>clinical queue</small>
+                                            </div>
+
+                                            <div class="ai-arrow"></div>
+
+                                            <div class="ai-node">
+                                                <span>ASYNC WORKER</span>
+                                                <strong>clinical-worker</strong>
+                                                <small>임상 분석 작업 처리</small>
+                                            </div>
+
+                                            <div class="ai-arrow"></div>
+
+                                            <div class="ai-node output-node">
+                                                <span>AI SERVICE</span>
+                                                <strong>clinical-ai</strong>
+                                                <small>예측 · 위험도 · SHAP</small>
+                                            </div>
+
+                                        </div>
+
+                                    </article>
+
+
+                                    <!-- DUGN STENO -->
+
+                                    <article class="ai-service steno-service">
+
+                                        <div class="ai-service-heading">
+
+                                            <i data-lucide="scan-line"></i>
+
+                                            <span>2D MEDICAL IMAGING</span>
+
+                                            <h3>DUGN STENO</h3>
+
+                                            <p>관상동맥 협착 분석</p>
+
+                                        </div>
+
+                                        <div class="ai-pipeline">
+
+                                            <div class="ai-node input-node">
+                                                <span>INPUT</span>
+                                                <strong>영상 데이터</strong>
+                                                <small>XCA · Series · Frame</small>
+                                            </div>
+
+                                            <div class="ai-arrow"></div>
+
+                                            <div class="ai-node">
+                                                <span>INTEGRATION</span>
+                                                <strong>XCA Bridge</strong>
+                                                <small>영상 분석 연동</small>
+                                            </div>
+
+                                            <div class="ai-arrow"></div>
+
+                                            <div class="ai-node">
+                                                <span>MODEL API</span>
+                                                <strong>2D GPU API</strong>
+                                                <small>GPU 기반 영상 처리</small>
+                                            </div>
+
+                                            <div class="ai-arrow"></div>
+
+                                            <div class="ai-node output-node">
+                                                <span>SEGMENTATION</span>
+                                                <strong>StenUNet</strong>
+                                                <small>협착 의심 영역 분석</small>
+                                            </div>
+
+                                        </div>
+
+                                    </article>
+
+
+                                    <!-- DUGN CAC -->
+
+                                    <article class="ai-service cac-service">
+
+                                        <div class="ai-service-heading">
+
+                                            <i data-lucide="box"></i>
+
+                                            <span>3D MEDICAL IMAGING</span>
+
+                                            <h3>DUGN CAC</h3>
+
+                                            <p>관상동맥 석회화 분석</p>
+
+                                        </div>
+
+                                        <div class="ai-pipeline">
+
+                                            <div class="ai-node input-node">
+                                                <span>INPUT</span>
+                                                <strong>CT 영상 데이터</strong>
+                                                <small>CCTA · DICOM Series</small>
+                                            </div>
+
+                                            <div class="ai-arrow"></div>
+
+                                            <div class="ai-node queue-node">
+                                                <span>MESSAGE BROKER</span>
+                                                <strong>RabbitMQ</strong>
+                                                <small>ccta queue</small>
+                                            </div>
+
+                                            <div class="ai-arrow"></div>
+
+                                            <div class="ai-node">
+                                                <span>ASYNC WORKER</span>
+                                                <strong>ccta-worker</strong>
+                                                <small>CT 분석 작업 처리</small>
+                                            </div>
+
+                                            <div class="ai-arrow"></div>
+
+                                            <div class="ai-node output-node">
+                                                <span>3D AI MODEL</span>
+                                                <strong>3D Model</strong>
+                                                <small>Docker · TotalSegmentator</small>
+                                            </div>
+
+                                        </div>
+
+                                    </article>
+
+                                </div>
+
+                            </article>
+
+
+                            <div class="system-connector">
+                                <span>Medical Data & Analysis Results</span>
+                            </div>
+
+
+                            <!-- 05. Data & Integration Layer -->
+
+                            <article class="system-layer data-integration-layer">
+
+                                <div class="system-layer-heading">
+                                    <span>05</span>
+                                    <h4>Data & Integration Layer</h4>
+                                    <small>결과 저장 · 의료 데이터 통합</small>
+                                </div>
+
+                                <div class="system-data-grid">
+
+                                    <article class="system-data-node">
+
+                                        <i data-lucide="database"></i>
+
+                                        <strong>PostgreSQL</strong>
+
+                                        <span>RELATIONAL DATABASE</span>
+
+                                        <ul>
+                                            <li>환자 및 의료진</li>
+                                            <li>예약 및 보고서</li>
+                                            <li>분석 결과 메타데이터</li>
+                                        </ul>
+
+                                    </article>
+
+
+                                    <article class="system-data-node">
+
+                                        <i data-lucide="hard-drive"></i>
+
+                                        <strong>RustFS</strong>
+
+                                        <span>OBJECT STORAGE</span>
+
+                                        <ul>
+                                            <li>AI 분석 결과 파일</li>
+                                            <li>Mask / NIfTI</li>
+                                            <li>3D GLB 파일</li>
+                                        </ul>
+
+                                    </article>
+
+
+                                    <article class="system-data-node">
+
+                                        <i data-lucide="scan"></i>
+
+                                        <strong>Orthanc PACS</strong>
+
+                                        <span>DICOM SERVER</span>
+
+                                        <ul>
+                                            <li>DICOM 의료영상</li>
+                                            <li>Study / Series</li>
+                                            <li>Instance 관리</li>
+                                        </ul>
+
+                                    </article>
+
+
+                                    <article class="system-data-node fhir-node">
+
+                                        <i data-lucide="heart-pulse"></i>
+
+                                        <strong>FHIR</strong>
+
+                                        <span>INTEROPERABILITY</span>
+
+                                        <ul>
+                                            <li>FHIR 호환 API</li>
+                                            <li>의료 데이터 표준화</li>
+                                            <li>Resource 기반 연동</li>
+                                        </ul>
+
+                                    </article>
+
+                                </div>
+
+                            </article>
+
+                        </div>
+
+
+                        <!-- Cross-cutting Concerns -->
+
+                        <aside class="system-cross-cutting">
+
+                            <div class="cross-heading">
+
+                                <i data-lucide="layers"></i>
+
+                                <h4>Cross-cutting Concerns</h4>
+
+                                <p>시스템 공통 기술 요소</p>
+
+                            </div>
+
+                            <div class="cross-node">
+                                <i data-lucide="shield-check"></i>
+                                <strong>TLS / HTTPS</strong>
+                                <small>통신 구간 보안</small>
+                            </div>
+
+                            <div class="cross-node">
+                                <i data-lucide="key-round"></i>
+                                <strong>JWT</strong>
+                                <small>토큰 기반 인증</small>
+                            </div>
+
+                            <div class="cross-node">
+                                <i data-lucide="users"></i>
+                                <strong>RBAC</strong>
+                                <small>역할 기반 권한</small>
+                            </div>
+
+                            <div class="cross-node">
+                                <i data-lucide="chart-no-axes-combined"></i>
+                                <strong>MLflow</strong>
+                                <small>모델 실험 관리</small>
+                            </div>
+
+                            <div class="cross-node">
+                                <i data-lucide="container"></i>
+                                <strong>Docker</strong>
+                                <small>컨테이너 실행 환경</small>
+                            </div>
+
+                            <div class="cross-node">
+                                <i data-lucide="clipboard-list"></i>
+                                <strong>Audit Log</strong>
+                                <small>감사 및 추적 기록</small>
+                            </div>
+
+                        </aside>
+
+                    </div>
+
+
+                    <!-- Architecture Legend -->
+
+                    <div class="system-legend">
+
+                        <span>
+                            <b class="legend-screen"></b>
+                            Clinical AI
+                        </span>
+
+                        <span>
+                            <b class="legend-steno"></b>
+                            2D Imaging
+                        </span>
+
+                        <span>
+                            <b class="legend-cac"></b>
+                            3D Imaging
+                        </span>
+
+                        <span>
+                            <b class="legend-fhir"></b>
+                            Interoperability
+                        </span>
+
+                    </div>
+
+                    <p class="architecture-note">
+                        최종 프로젝트 시스템 아키텍처를 기반으로
+                        주요 서비스와 논리적 데이터 처리 흐름을 재구성했습니다.
+                        팀 전체 시스템 구조이며, 개인 담당 영역은 아래에 별도로 표시합니다.
+                    </p>
+
+                </div>
+
+
+                <!-- Personal Engineering Scope -->
+
+                <div class="subsection-heading">
+
+                    <span>MY ENGINEERING SCOPE</span>
+
+                    <h3>Where I Contributed.</h3>
+
+                    <p>
+                        전체 시스템 중 직접 담당한 백엔드 및
+                        의료 데이터 처리 영역입니다.
+                    </p>
+
+                </div>
+
+                <div class="scope-grid">
+
+                    <article class="scope-card">
+
+                        <span class="scope-number">01</span>
+
+                        <i data-lucide="server"></i>
+
+                        <h3>Backend & API</h3>
+
+                        <p>
+                            Django REST API 기반 의료 업무 로직과
+                            서비스 간 데이터 연동 구현
+                        </p>
+
+                        <div class="decision-tags">
+                            <span>Django</span>
+                            <span>DRF</span>
+                            <span>REST API</span>
+                        </div>
+
+                    </article>
+
+
+                    <article class="scope-card">
+
+                        <span class="scope-number">02</span>
+
+                        <i data-lucide="calendar-check"></i>
+
+                        <h3>Clinical Workflow</h3>
+
+                        <p>
+                            예약 슬롯 관리, 일정 변경 충돌 검사,
+                            의료진 서명 및 환자 결과 공개 조건 구현
+                        </p>
+
+                        <div class="decision-tags">
+                            <span>Transaction</span>
+                            <span>Row Lock</span>
+                            <span>Access Control</span>
+                        </div>
+
+                    </article>
+
+
+                    <article class="scope-card">
+
+                        <span class="scope-number">03</span>
+
+                        <i data-lucide="database"></i>
+
+                        <h3>Data Integration</h3>
+
+                        <p>
+                            업무 데이터, DICOM 의료영상,
+                            AI 분석 결과 파일의 저장소 분리 및 연동
+                        </p>
+
+                        <div class="decision-tags">
+                            <span>PostgreSQL</span>
+                            <span>Orthanc</span>
+                            <span>RustFS</span>
+                        </div>
+
+                    </article>
+
+
+                    <article class="scope-card">
+
+                        <span class="scope-number">04</span>
+
+                        <i data-lucide="box"></i>
+
+                        <h3>Medical 3D Processing</h3>
+
+                        <p>
+                            CT와 Segmentation Mask의 공간 좌표 정렬,
+                            Mesh 생성 및 GLB 결과 데이터 처리
+                        </p>
+
+                        <div class="decision-tags">
+                            <span>SimpleITK</span>
+                            <span>NumPy</span>
+                            <span>Trimesh</span>
+                        </div>
+
+                    </article>
+
+                </div>
+
+                <div class="scope-note">
+
+                    <i data-lucide="info"></i>
+
+                    <p>
+                        AI 모델 학습, React 및 Flutter 서비스 개발 등은
+                        팀 협업 영역입니다.
+                        본 포트폴리오는 직접 담당한 백엔드와
+                        의료 데이터 처리 구현을 중심으로 설명합니다.
+                    </p>
+
+                </div>
+
+
+
+                <a class="document-link"
+                   href="https://github.com/Kimyuri420/cdss-portfolio/blob/main/projects/dugn/architecture.md"
+                   target="_blank" rel="noopener noreferrer">
+                    View Architecture Documentation
+                    <i data-lucide="arrow-up-right"></i>
+                </a>
+
+                <!-- Engineering Decisions -->
+
+                <div class="subsection-heading">
+
+                    <span>ENGINEERING DECISIONS</span>
+
+                    <h3>Why These Technologies?</h3>
+
+                    <p>
+                        데이터의 특성과 의료 서비스 요구사항을 고려하여
+                        각 기술의 역할과 책임을 분리했습니다.
+                    </p>
+
+                </div>
+
+                <div id="architecture-decisions" class="engineering-grid">
+
+                    <!-- 01. Django -->
+
+                    <article class="engineering-card">
+
+                        <div class="engineering-card-top">
+                            <i data-lucide="server"></i>
+                            <span>01 / BACKEND</span>
+                        </div>
+
+                        <h3>Django REST Framework</h3>
+
+                        <p>
+                            환자, 의료진, 예약, 검사 및 판독 보고서 등
+                            복잡한 의료 업무 데이터를 관리하는
+                            핵심 백엔드 프레임워크입니다.
+                        </p>
+
+                        <div class="engineering-reason">
+
+                            <strong>Engineering Decision</strong>
+
+                            <p>
+                                ORM, 인증, 권한 관리 및 트랜잭션을 활용하여
+                                의료 업무 규칙과 REST API를
+                                일관된 구조에서 구현했습니다.
+                            </p>
+
+                        </div>
+
+                        <div class="decision-tags">
+                            <span>ORM</span>
+                            <span>REST API</span>
+                            <span>Authentication</span>
+                        </div>
+
+                    </article>
+
+
+                    <!-- 02. PostgreSQL -->
+
+                    <article class="engineering-card">
+
+                        <div class="engineering-card-top">
+                            <i data-lucide="database"></i>
+                            <span>02 / DATABASE</span>
+                        </div>
+
+                        <h3>PostgreSQL</h3>
+
+                        <p>
+                            환자 및 의료진 정보, 예약 일정,
+                            판독 보고서와 결과 공개 상태 등
+                            관계형 업무 데이터를 관리합니다.
+                        </p>
+
+                        <div class="engineering-reason">
+
+                            <strong>Engineering Decision</strong>
+
+                            <p>
+                                관계형 데이터의 정합성을 유지하고
+                                Transaction과 Row Lock을 활용하여
+                                일정 변경 및 예약 충돌 위험을 줄였습니다.
+                            </p>
+
+                        </div>
+
+                        <div class="decision-tags">
+                            <span>Transaction</span>
+                            <span>Row Lock</span>
+                            <span>Data Integrity</span>
+                        </div>
+
+                    </article>
+
+
+                    <!-- 03. Orthanc -->
+
+                    <article class="engineering-card">
+
+                        <div class="engineering-card-top">
+                            <i data-lucide="scan"></i>
+                            <span>03 / MEDICAL IMAGING</span>
+                        </div>
+
+                        <h3>Orthanc PACS</h3>
+
+                        <p>
+                            DICOM 표준 기반 의료영상의 저장,
+                            조회 및 관리를 담당하는 의료영상 서버입니다.
+                        </p>
+
+                        <div class="engineering-reason">
+
+                            <strong>Engineering Decision</strong>
+
+                            <p>
+                                의료영상의 Study, Series, Instance 구조를
+                                일반 업무 데이터와 분리하고,
+                                REST API를 통해 백엔드와 연동했습니다.
+                            </p>
+
+                        </div>
+
+                        <div class="decision-tags">
+                            <span>DICOM</span>
+                            <span>PACS</span>
+                            <span>REST API</span>
+                        </div>
+
+                    </article>
+
+
+                    <!-- 04. RustFS -->
+
+                    <article class="engineering-card">
+
+                        <div class="engineering-card-top">
+                            <i data-lucide="hard-drive"></i>
+                            <span>04 / OBJECT STORAGE</span>
+                        </div>
+
+                        <h3>RustFS</h3>
+
+                        <p>
+                            AI 분석 결과, Segmentation Mask,
+                            3D GLB 등 비정형 결과 파일을 관리하는
+                            S3 호환 객체 저장소입니다.
+                        </p>
+
+                        <div class="engineering-reason">
+
+                            <strong>Engineering Decision</strong>
+
+                            <p>
+                                대용량 파일을 관계형 데이터베이스와 분리하고,
+                                파일의 저장 및 조회 과정에서
+                                백엔드가 접근 조건을 관리하도록 구성했습니다.
+                            </p>
+
+                        </div>
+
+                        <div class="decision-tags">
+                            <span>S3 Compatible</span>
+                            <span>Boto3</span>
+                            <span>Object Storage</span>
+                        </div>
+
+                    </article>
+
+
+                    <!-- 05. Async Processing -->
+
+                    <article class="engineering-card">
+
+                        <div class="engineering-card-top">
+                            <i data-lucide="workflow"></i>
+                            <span>05 / ASYNC PROCESSING</span>
+                        </div>
+
+                        <h3>Celery & RabbitMQ</h3>
+
+                        <p>
+                            임상 데이터 분석과 CT 영상 처리처럼
+                            실행 시간이 긴 작업을 처리하는
+                            비동기 작업 실행 구조입니다.
+                        </p>
+
+                        <div class="engineering-reason">
+
+                            <strong>Engineering Decision</strong>
+
+                            <p>
+                                일반 API 요청과 장시간 분석 작업을 분리하고,
+                                clinical 및 ccta 작업 큐를 통해
+                                분석 종류별 Worker 실행 환경을 구성했습니다.
+                            </p>
+
+                        </div>
+
+                        <div class="decision-tags">
+                            <span>Celery</span>
+                            <span>RabbitMQ</span>
+                            <span>Redis</span>
+                            <span>Worker</span>
+                        </div>
+
+                    </article>
+
+
+                    <!-- 06. FastAPI -->
+
+                    <article class="engineering-card">
+
+                        <div class="engineering-card-top">
+                            <i data-lucide="brain-circuit"></i>
+                            <span>06 / AI INTEGRATION</span>
+                        </div>
+
+                        <h3>FastAPI</h3>
+
+                        <p>
+                            AI 분석 기능을 의료 업무 서비스와 분리하여
+                            API 기반으로 연동하기 위한 서비스입니다.
+                        </p>
+
+                        <div class="engineering-reason">
+
+                            <strong>Engineering Decision</strong>
+
+                            <p>
+                                Django의 의료 업무 로직과
+                                AI 서비스의 분석 로직을 분리하여
+                                각 서비스의 책임을 구분했습니다.
+                            </p>
+
+                        </div>
+
+                        <div class="decision-tags">
+                            <span>AI Service</span>
+                            <span>API Integration</span>
+                            <span>Service Separation</span>
+                        </div>
+
+                    </article>
+
+
+                    <!-- 07. FHIR -->
+
+                    <article class="engineering-card">
+
+                        <div class="engineering-card-top">
+                            <i data-lucide="heart-pulse"></i>
+                            <span>07 / INTEROPERABILITY</span>
+                        </div>
+
+                        <h3>FHIR</h3>
+
+                        <p>
+                            의료 데이터의 표준화된 표현과
+                            시스템 간 데이터 교환을 고려한
+                            의료정보 연동 구조입니다.
+                        </p>
+
+                        <div class="engineering-reason">
+
+                            <strong>Engineering Decision</strong>
+
+                            <p>
+                                의료 데이터를 표준 Resource 기반으로
+                                표현할 수 있도록 구성하여
+                                의료 시스템 간 상호운용성을 고려했습니다.
+                            </p>
+
+                        </div>
+
+                        <div class="decision-tags">
+                            <span>HL7 FHIR</span>
+                            <span>Resource</span>
+                            <span>Healthcare API</span>
+                        </div>
+
+                    </article>
+
+
+                    <!-- 08. Docker & GCP -->
+
+                    <article class="engineering-card">
+
+                        <div class="engineering-card-top">
+                            <i data-lucide="cloud"></i>
+                            <span>08 / INFRASTRUCTURE</span>
+                        </div>
+
+                        <h3>Docker & GCP</h3>
+
+                        <p>
+                            백엔드, 데이터베이스, 의료영상 서버,
+                            AI 서비스 및 Worker를 실행하기 위한
+                            컨테이너 기반 인프라입니다.
+                        </p>
+
+                        <div class="engineering-reason">
+
+                            <strong>Engineering Decision</strong>
+
+                            <p>
+                                서비스별 실행 환경을 분리하고
+                                Docker Compose를 통해 관리하며,
+                                GCP VM 기반의 프로젝트 실행 환경을 구성했습니다.
+                            </p>
+
+                        </div>
+
+                        <div class="decision-tags">
+                            <span>Docker Compose</span>
+                            <span>GCP</span>
+                            <span>Virtual Machine</span>
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <!-- Engineering Summary -->
+
+                <div class="engineering-summary">
+
+                    <div class="engineering-summary-icon">
+                        <i data-lucide="layers"></i>
+                    </div>
+
+                    <div>
+
+                        <span>ENGINEERING PRINCIPLE</span>
+
+                        <h3>Separation of Responsibilities.</h3>
+
+                        <p>
+                            DUGN은 의료 업무 처리, AI 분석, 의료영상 관리,
+                            결과 파일 저장 및 데이터 연동의 책임을
+                            각 서비스에 분리한 시스템입니다.
+                        </p>
+
+                        <p>
+                            전체 팀 시스템을 이해하고,
+                            개인 담당 영역에서는 데이터 정합성,
+                            접근 제어 및 의료 데이터 연동을 중심으로
+                            백엔드 기능을 구현했습니다.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <p class="engineering-scope-caption">
+                    위 기술 구성은 팀 전체 시스템을 기준으로 설명하며,
+                    개인 구현 범위와 실제 코드는 Backend & API 및
+                    Validation 섹션에서 별도로 설명합니다.
+                </p>
+
+
+            </section>
+
+            <!-- 02. 백엔드 API -->
+            <section id="backend" class="section">
+
+                <div class="section-heading">
+                    <span class="section-number">02 / BACKEND ENGINEERING</span>
+                    <h2>Backend & API</h2>
+                    <p>의료 업무 규칙을 반영한 API와 데이터 정합성 관리</p>
+                </div>
+
+                <div id="backend-content">
+                    <!-- 예약, 트랜잭션, 접근 제어 및 실제 코드 추가 예정 -->
+                </div>
+
+                <!-- Backend Engineering Highlights -->
+
+                <div class="backend-highlight-grid">
+
+                    <article class="backend-highlight">
+                        <i data-lucide="calendar-days"></i>
+                        <h3>Reservation System</h3>
+                        <p>근무 일정 기반 30분 예약 슬롯 관리</p>
+                    </article>
+
+                    <article class="backend-highlight">
+                        <i data-lucide="lock-keyhole"></i>
+                        <h3>Data Integrity</h3>
+                        <p>Transaction 및 Row Lock</p>
+                    </article>
+
+                    <article class="backend-highlight">
+                        <i data-lucide="shield-check"></i>
+                        <h3>Access Control</h3>
+                        <p>환자별 데이터 접근 조건 관리</p>
+                    </article>
+
+                    <article class="backend-highlight">
+                        <i data-lucide="file-check"></i>
+                        <h3>Clinical Workflow</h3>
+                        <p>의료진 서명 및 결과 공개</p>
+                    </article>
+
+                </div>
+
+
+                <!-- 01. Reservation System -->
+
+                <article class="implementation-card">
+
+                    <div class="implementation-heading">
+                        <span>01 / CORE IMPLEMENTATION</span>
+                        <h3>Reservation & Schedule Management</h3>
+                        <p>의료진 근무 일정과 환자 예약의 데이터 정합성 관리</p>
+                    </div>
+
+                    <div class="implementation-context">
+
+                        <div class="context-item">
+                            <span>PROBLEM</span>
+                            <p>
+                                의료진의 근무 일정이 변경되면
+                                기존 예약 시간과 변경된 근무 일정 사이에
+                                충돌이 발생할 수 있습니다.
+                            </p>
+                        </div>
+
+                        <div class="context-item">
+                            <span>ENGINEERING DECISION</span>
+                            <p>
+                                근무 일정 기반으로 예약 슬롯을 생성하고,
+                                기존 활성 예약과의 충돌을 검사한 후
+                                슬롯을 갱신하도록 설계했습니다.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="backend-flow">
+
+                        <div class="backend-flow-node">
+                            <i data-lucide="calendar-days"></i>
+                            <strong>근무 일정</strong>
+                            <small>Work Schedule</small>
+                        </div>
+
+                        <div class="backend-flow-arrow">
+                            <i data-lucide="arrow-right"></i>
+                        </div>
+
+                        <div class="backend-flow-node">
+                            <i data-lucide="clock"></i>
+                            <strong>슬롯 생성</strong>
+                            <small>30-minute Slots</small>
+                        </div>
+
+                        <div class="backend-flow-arrow">
+                            <i data-lucide="arrow-right"></i>
+                        </div>
+
+                        <div class="backend-flow-node">
+                            <i data-lucide="shield-check"></i>
+                            <strong>충돌 검사</strong>
+                            <small>Active Reservations</small>
+                        </div>
+
+                        <div class="backend-flow-arrow">
+                            <i data-lucide="arrow-right"></i>
+                        </div>
+
+                        <div class="backend-flow-node flow-success">
+                            <i data-lucide="database"></i>
+                            <strong>슬롯 갱신</strong>
+                            <small>Database Update</small>
+                        </div>
+
+                    </div>
+
+                    <div class="conflict-message">
+                        <i data-lucide="alert-triangle"></i>
+
+                        <div>
+                            <strong>SCHEDULE_HAS_ACTIVE_RESERVATIONS</strong>
+                            <p>
+                                변경하려는 일정에 활성 예약이 존재하면
+                                충돌 여부를 확인하여 일정 변경을 제한합니다.
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <!-- Actual Python Code -->
+
+                    <div class="implementation-code">
+
+                        <div class="code-toolbar">
+
+                            <div class="code-file">
+                                <i data-lucide="file-code"></i>
+                                <span>appointments/services.py</span>
+                            </div>
+
+                            <button type="button"
+                                    class="copy-code"
+                                    aria-label="Copy Python code">
+                                <i data-lucide="copy"></i>
+                                <span>Copy</span>
+                            </button>
+
+                        </div>
+
+                        <pre><code class="language-python">@transaction.atomic
+                def sync_doctor_availability_for_date(doctor, target_date):
+                    wanted = _wanted_slot_ranges(doctor, target_date)
+                    day_start, day_end = _day_bounds(target_date)
+
+                    existing = {
+                        (slot.starts_at, slot.ends_at): slot
+                        for slot in DoctorAvailabilitySlot.objects
+                        .select_for_update()
+                        .filter(
+                            doctor=doctor,
+                            starts_at__gte=day_start,
+                            starts_at__lt=day_end,
+                        )
+                    }
+
+                    # 이후 활성 예약 조회 및 충돌 검사
+                    # 슬롯 생성 및 갱신 처리 생략</code></pre>
+
+                        <div class="code-caption">
+                            실제 프로젝트 코드 일부 발췌
+                        </div>
+
+                    </div>
+
+
+                    <div class="implementation-explanation">
+
+                        <h4>How It Works</h4>
+
+                        <div class="explanation-row">
+                            <span>01</span>
+                            <div>
+                                <strong>Transaction Atomic</strong>
+                                <p>
+                                    관련 데이터 변경을 하나의 트랜잭션으로
+                                    묶어 처리하며, 예외 발생 시
+                                    변경 사항을 롤백할 수 있도록 구성합니다.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="explanation-row">
+                            <span>02</span>
+                            <div>
+                                <strong>Select For Update</strong>
+                                <p>
+                                    조회한 기존 예약 슬롯 행에 잠금을 적용하여
+                                    트랜잭션이 진행되는 동안
+                                    동일 행의 동시 수정 위험을 줄입니다.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="explanation-row">
+                            <span>03</span>
+                            <div>
+                                <strong>Conflict Validation</strong>
+                                <p>
+                                    기존 활성 예약과 변경 대상 슬롯을 비교하여
+                                    예약과 근무 일정의 충돌을 검사합니다.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="implementation-result">
+                        <i data-lucide="check-circle"></i>
+                        <div>
+                            <strong>Implementation Outcome</strong>
+                            <p>
+                                근무 일정 변경 과정에서 기존 예약을 고려하고,
+                                예약 슬롯의 일관성을 유지하기 위한
+                                백엔드 처리 구조를 구현했습니다.
+                            </p>
+                        </div>
+                    </div>
+
+                </article>
+
+
+                <!-- 02. Result Release -->
+
+                <article class="implementation-card">
+
+                    <div class="implementation-heading">
+                        <span>02 / CORE IMPLEMENTATION</span>
+                        <h3>Controlled Result Release</h3>
+                        <p>의료진 최종 서명 및 환자 결과 공개 조건 관리</p>
+                    </div>
+
+                    <div class="implementation-context">
+
+                        <div class="context-item">
+                            <span>PROBLEM</span>
+                            <p>
+                                AI 분석 완료와 의료진의 최종 판독 완료는
+                                서로 다른 상태입니다.
+                                분석 결과가 생성되었다는 이유만으로
+                                환자에게 공개되어서는 안 됩니다.
+                            </p>
+                        </div>
+
+                        <div class="context-item">
+                            <span>ENGINEERING DECISION</span>
+                            <p>
+                                AI 분석, 의료진 판독, 최종 서명,
+                                환자 결과 공개를 별도의 단계로 구분하고
+                                백엔드에서 공개 조건을 검증하도록 구성했습니다.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="release-flow">
+
+                        <div class="release-flow-node">
+                            <i data-lucide="brain-circuit"></i>
+                            <strong>AI 분석</strong>
+                            <small>Analysis</small>
+                        </div>
+
+                        <div class="release-flow-arrow">
+                            <i data-lucide="arrow-right"></i>
+                        </div>
+
+                        <div class="release-flow-node">
+                            <i data-lucide="clipboard-list"></i>
+                            <strong>의료진 판독</strong>
+                            <small>Review</small>
+                        </div>
+
+                        <div class="release-flow-arrow">
+                            <i data-lucide="arrow-right"></i>
+                        </div>
+
+                        <div class="release-flow-node">
+                            <i data-lucide="file-check"></i>
+                            <strong>최종 서명</strong>
+                            <small>FINAL</small>
+                        </div>
+
+                        <div class="release-flow-arrow">
+                            <i data-lucide="arrow-right"></i>
+                        </div>
+
+                        <div class="release-flow-node release-complete">
+                            <i data-lucide="smartphone"></i>
+                            <strong>환자 공개</strong>
+                            <small>RELEASED</small>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Access Conditions -->
+
+                    <div class="release-condition-grid">
+
+                        <article class="release-condition">
+                            <i data-lucide="user-check"></i>
+                            <h4>Patient Ownership</h4>
+                            <p>요청한 환자 본인의 의료 결과인지 확인</p>
+                        </article>
+
+                        <article class="release-condition">
+                            <i data-lucide="file-check"></i>
+                            <h4>Final Signoff</h4>
+                            <p>의료진의 최종 서명 여부 확인</p>
+                        </article>
+
+                        <article class="release-condition">
+                            <i data-lucide="unlock"></i>
+                            <h4>Released Status</h4>
+                            <p>환자에게 공개된 결과인지 확인</p>
+                        </article>
+
+                        <article class="release-condition">
+                            <i data-lucide="shield-check"></i>
+                            <h4>Withdrawal Check</h4>
+                            <p>공개 철회된 결과는 조회 대상에서 제외</p>
+                        </article>
+
+                    </div>
+
+
+                    <div class="implementation-code">
+
+                        <div class="code-toolbar">
+
+                            <div class="code-file">
+                                <i data-lucide="file-code"></i>
+                                <span>reports/patient_result_views.py</span>
+                            </div>
+
+                            <button type="button"
+                                    class="copy-code"
+                                    aria-label="Copy Python code">
+                                <i data-lucide="copy"></i>
+                                <span>Copy</span>
+                            </button>
+
+                        </div>
+
+                        <pre><code class="language-python">def released_result(patient, result_id):
+                    return (
+                        ResultRelease.objects.select_related(
+                            "signoff",
+                            "signoff__doctor",
+                            "signoff__doctor__department",
+                            "report",
+                            "report__report_version",
+                            "report__report_version__medical_result",
+                        )
+                        .filter(
+                            report__report_version__medical_result_id=result_id,
+                            report__report_version__medical_result__patient=patient,
+                            report__status__in=[Report.Status.ACTIVE, "FINAL"],
+                            release_status=ResultRelease.ReleaseStatus.RELEASED,
+                            withdrawn_at__isnull=True,
+                            signoff__signoff_type="FINAL",
+                        )
+                        .order_by("-released_at", "-id")
+                        .first()
+                    )</code></pre>
+
+                        <div class="code-caption">
+                            실제 환자 결과 공개 조회 코드 발췌
+                        </div>
+
+                    </div>
+
+
+                    <div class="implementation-explanation">
+
+                        <h4>How It Works</h4>
+
+                        <div class="explanation-row">
+                            <span>01</span>
+                            <div>
+                                <strong>Object-level Access Control</strong>
+                                <p>
+                                    환자 식별 정보와 결과 ID를 함께 검증하여
+                                    다른 환자의 결과가 조회되지 않도록
+                                    데이터 조회 조건을 제한합니다.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="explanation-row">
+                            <span>02</span>
+                            <div>
+                                <strong>State-based Validation</strong>
+                                <p>
+                                    최종 서명, 공개 상태, 공개 철회 여부를
+                                    함께 검사하여 조회 가능한 결과를 결정합니다.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="explanation-row">
+                            <span>03</span>
+                            <div>
+                                <strong>Signed Snapshot</strong>
+                                <p>
+                                    서명 시점의 보고서 및 첨부 결과를
+                                    스냅샷으로 관리하여 이후 AI 분석 결과가
+                                    변경되더라도 확정된 보고서와 구분합니다.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="explanation-row">
+                            <span>04</span>
+                            <div>
+                                <strong>Query Optimization</strong>
+                                <p>
+                                    select_related를 사용하여 관련 객체를
+                                    함께 조회하고, 반복적인 관계 객체 조회로
+                                    발생할 수 있는 추가 쿼리를 줄이도록 구성했습니다.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="implementation-result">
+                        <i data-lucide="check-circle"></i>
+
+                        <div>
+                            <strong>Implementation Outcome</strong>
+                            <p>
+                                AI 분석 완료와 환자 결과 공개를 분리하고,
+                                의료진이 확정한 결과를 공개 조건에 따라
+                                환자에게 제공하는 백엔드 구조를 구현했습니다.
+                            </p>
+                        </div>
+                    </div>
+
+                </article>
+
+
+                <!-- 03. Additional Backend Features -->
+
+                <div class="subsection-heading">
+
+                    <span>ADDITIONAL IMPLEMENTATIONS</span>
+
+                    <h3>Beyond Core APIs.</h3>
+
+                    <p>
+                        의료진과 환자의 서비스 이용을 지원하기 위한
+                        추가 백엔드 기능입니다.
+                    </p>
+
+                </div>
+
+                <div class="backend-feature-grid">
+
+                    <article class="backend-feature-card">
+                        <i data-lucide="user-round-check"></i>
+                        <h3>Patient Access Control</h3>
+                        <p>
+                            환자와 계정의 활성 연결 관계를 확인하고
+                            환자 본인의 결과에 접근하도록 제한합니다.
+                        </p>
+                        <div class="decision-tags">
+                            <span>Authentication</span>
+                            <span>Permission</span>
+                        </div>
+                    </article>
+
+                    <article class="backend-feature-card">
+                        <i data-lucide="message-square"></i>
+                        <h3>Chat & Notification</h3>
+                        <p>
+                            REST API 기반 메시지 처리와
+                            WebSocket 이벤트를 활용한
+                            의료진 업무 지원 기능입니다.
+                        </p>
+                        <div class="decision-tags">
+                            <span>Channels</span>
+                            <span>WebSocket</span>
+                        </div>
+                    </article>
+
+                    <article class="backend-feature-card">
+                        <i data-lucide="history"></i>
+                        <h3>Recent Work</h3>
+                        <p>
+                            최근 작업을 최대 3개까지 관리하고,
+                            동일 작업 대상에 다시 접근하면
+                            작업 시간을 갱신하도록 구현했습니다.
+                        </p>
+                        <div class="decision-tags">
+                            <span>ORM</span>
+                            <span>Business Logic</span>
+                        </div>
+                    </article>
+
+                    <article class="backend-feature-card">
+                        <i data-lucide="files"></i>
+                        <h3>Unified Report</h3>
+                        <p>
+                            XCA 및 CCTA 분석 결과와 의료진 판독 내용을
+                            통합 보고서 흐름으로 관리합니다.
+                        </p>
+                        <div class="decision-tags">
+                            <span>Report Version</span>
+                            <span>Snapshot</span>
+                        </div>
+                    </article>
+
+                </div>
+
+
+                <!-- Backend Engineering Takeaway -->
+
+                <div class="engineering-summary">
+
+                    <div class="engineering-summary-icon">
+                        <i data-lucide="lightbulb"></i>
+                    </div>
+
+                    <div>
+
+                        <span>ENGINEERING TAKEAWAY</span>
+
+                        <h3>Beyond CRUD.</h3>
+
+                        <p>
+                            단순한 데이터 등록 및 조회를 넘어
+                            의료 업무의 상태 변화, 예약 충돌,
+                            사용자별 접근 조건을 고려한
+                            백엔드 비즈니스 로직을 구현했습니다.
+                        </p>
+
+                        <p>
+                            의료 서비스에서는 기능 구현뿐만 아니라
+                            데이터의 정합성과 결과 공개 시점,
+                            접근 권한을 함께 고려해야 한다는 점을
+                            경험했습니다.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <a class="document-link"
+                   href="https://github.com/Kimyuri420/cdss-portfolio/blob/main/projects/dugn/backend-api.md"
+                   target="_blank" rel="noopener noreferrer">
+                    View Backend Documentation
+                    <i data-lucide="arrow-up-right"></i>
+                </a>
+
+            </section>
+
+            <!-- 03. 의료 데이터 및 3D -->
+            <section id="medical-data" class="section">
+
+                <div class="section-heading">
+                    <span class="section-number">03 / MEDICAL DATA ENGINEERING</span>
+                    <h2>Medical Data & 3D</h2>
+                    <p>의료영상 데이터 처리와 공간 좌표 기반 3D 생성</p>
+                </div>
+
+
+            <!-- Medical Data Storage Strategy -->
+
+            <div class="subsection-heading">
+
+                <span>DATA STORAGE STRATEGY</span>
+
+                <h3>Right Data. Right Storage.</h3>
+
+                <p>
+                    데이터의 구조와 사용 목적에 따라
+                    세 가지 저장소의 역할을 분리했습니다.
+                </p>
+
+            </div>
+
+            <div class="medical-storage-grid">
+
+                <article class="medical-storage-card">
+
+                    <div class="medical-storage-icon">
+                        <i data-lucide="database"></i>
+                    </div>
+
+                    <span class="storage-category">
+                        RELATIONAL DATABASE
+                    </span>
+
+                    <h3>PostgreSQL</h3>
+
+                    <p>의료 업무 데이터 관리</p>
+
+                    <ul>
+                        <li>환자 및 의료진 정보</li>
+                        <li>예약 및 검사 일정</li>
+                        <li>판독 보고서</li>
+                        <li>AI 작업 및 결과 메타데이터</li>
+                        <li>서명 및 결과 공개 상태</li>
+                    </ul>
+
+                    <div class="storage-purpose">
+                        Data Integrity & Relationships
+                    </div>
+
+                </article>
+
+
+                <article class="medical-storage-card">
+
+                    <div class="medical-storage-icon">
+                        <i data-lucide="scan"></i>
+                    </div>
+
+                    <span class="storage-category">
+                        MEDICAL IMAGING SERVER
+                    </span>
+
+                    <h3>Orthanc PACS</h3>
+
+                    <p>원본 의료영상 관리</p>
+
+                    <ul>
+                        <li>DICOM 의료영상</li>
+                        <li>Study</li>
+                        <li>Series</li>
+                        <li>Instance</li>
+                        <li>의료영상 조회 및 연동</li>
+                    </ul>
+
+                    <div class="storage-purpose">
+                        DICOM Standard & Imaging
+                    </div>
+
+                </article>
+
+
+                <article class="medical-storage-card">
+
+                    <div class="medical-storage-icon">
+                        <i data-lucide="hard-drive"></i>
+                    </div>
+
+                    <span class="storage-category">
+                        OBJECT STORAGE
+                    </span>
+
+                    <h3>RustFS</h3>
+
+                    <p>AI 분석 및 생성 결과 파일 관리</p>
+
+                    <ul>
+                        <li>Segmentation Mask</li>
+                        <li>AI 분석 결과 파일</li>
+                        <li>3D GLB 파일</li>
+                        <li>비정형 결과 데이터</li>
+                        <li>대용량 파일 저장</li>
+                    </ul>
+
+                    <div class="storage-purpose">
+                        Object Storage & File Assets
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <!-- Storage Integration -->
+
+            <div class="storage-integration">
+
+                <div class="storage-integration-core">
+                    <i data-lucide="server"></i>
+                    <strong>Django Backend</strong>
+                    <small>Data Integration & Access Control</small>
+                </div>
+
+                <div class="storage-integration-line"></div>
+
+                <div class="storage-integration-targets">
+
+                    <div>
+                        <i data-lucide="database"></i>
+                        <strong>PostgreSQL</strong>
+                        <small>Business Data</small>
+                    </div>
+
+                    <div>
+                        <i data-lucide="scan"></i>
+                        <strong>Orthanc</strong>
+                        <small>Medical Images</small>
+                    </div>
+
+                    <div>
+                        <i data-lucide="hard-drive"></i>
+                        <strong>RustFS</strong>
+                        <small>Analysis Assets</small>
+                    </div>
+
+                </div>
+
+                <p>
+                    백엔드는 업무 데이터, 원본 의료영상,
+                    분석 결과 파일을 연결하고
+                    서비스의 접근 조건에 따라 필요한 데이터를 제공합니다.
+                </p>
+
+            </div>
+
+
+            <!-- Medical 3D Processing -->
+
+            <article class="implementation-card">
+
+                <div class="implementation-heading">
+
+                    <span>01 / MEDICAL IMAGE PROCESSING</span>
+
+                    <h3>From CT to 3D.</h3>
+
+                    <p>
+                        의료영상과 Segmentation Mask를 기반으로
+                        웹에서 활용할 수 있는 3D GLB 데이터를 생성합니다.
+                    </p>
+
+                </div>
+
+                <div class="medical-pipeline">
+
+                    <div class="medical-pipeline-heading">
+                        <span>MEDICAL 3D PIPELINE</span>
+                        <i data-lucide="box"></i>
+                    </div>
+
+                    <div class="medical-pipeline-grid">
+
+                        <div class="medical-pipeline-stage">
+
+                            <span class="pipeline-step">01</span>
+
+                            <div class="pipeline-visual">
+                                <div class="ct-stack">
+                                    <div class="ct-slice"></div>
+                                    <div class="ct-slice"></div>
+                                    <div class="ct-slice"></div>
+                                </div>
+                            </div>
+
+                            <h4>CT Volume</h4>
+                            <small>DICOM / NIfTI</small>
+
+                        </div>
+
+                        <div class="medical-pipeline-stage">
+
+                            <span class="pipeline-step">02</span>
+
+                            <div class="pipeline-visual">
+                                <div class="mask-visual">
+                                    <div class="mask-region"></div>
+                                    <div class="mask-cross-x"></div>
+                                    <div class="mask-cross-y"></div>
+                                </div>
+                            </div>
+
+                            <h4>Aligned Mask</h4>
+                            <small>Spatial Alignment</small>
+
+                        </div>
+
+                        <div class="medical-pipeline-stage">
+
+                            <span class="pipeline-step">03</span>
+
+                            <div class="pipeline-visual">
+
+                                <svg viewBox="0 0 120 120"
+                                    class="mesh-visual"
+                                    aria-hidden="true">
+
+                                    <g fill="rgba(81,106,200,0.2)"
+                                    stroke="#A8BAFF"
+                                    stroke-width="1">
+
+                                        <path d="M54 8 L93 25 L111 61 L88 99
+                                                L51 112 L12 84 L8 42 Z"/>
+
+                                        <path d="M54 8 L58 58 L8 42
+                                                L51 112 L58 58 L111 61
+                                                L54 8"/>
+
+                                        <path d="M12 84 L58 58 L88 99
+                                                L93 25 L58 58"/>
+
+                                        <path d="M8 42 L93 25 M12 84 L88 99"/>
+
+                                    </g>
+
+                                </svg>
+
+                            </div>
+
+                            <h4>3D Mesh</h4>
+                            <small>Marching Cubes</small>
+
+                        </div>
+
+                        <div class="medical-pipeline-stage">
+
+                            <span class="pipeline-step">04</span>
+
+                            <div class="pipeline-visual">
+
+                                <svg viewBox="0 0 120 120"
+                                    class="glb-visual"
+                                    aria-hidden="true">
+
+                                    <g stroke="#A8BAFF"
+                                    stroke-width="1.5"
+                                    fill="rgba(81,106,200,0.25)">
+
+                                        <path d="M60 8 L105 32 L105 83
+                                                L60 109 L15 83 L15 32 Z"/>
+
+                                        <path d="M15 32 L60 58 L105 32"
+                                            fill="none"/>
+
+                                        <path d="M60 58 V109"
+                                            fill="none"/>
+
+                                    </g>
+
+                                    <text x="60"
+                                        y="45"
+                                        text-anchor="middle"
+                                        font-size="13"
+                                        font-weight="700"
+                                        fill="#E3AF64">GLB</text>
+
+                                </svg>
+
+                            </div>
+
+                            <h4>3D Asset</h4>
+                            <small>RustFS Storage</small>
+
+                        </div>
+
+                    </div>
+
+                    <div class="pipeline-signal"></div>
+
+                    <p class="pipeline-caption">
+                        의료영상 처리 과정의 개념도이며
+                        실제 환자 영상은 포함하지 않았습니다.
+                    </p>
+
+                </div>
+
+
+                <!-- Processing Context -->
+
+                <div class="implementation-context">
+
+                    <div class="context-item">
+
+                        <span>PROBLEM</span>
+
+                        <p>
+                            CT 영상과 Segmentation Mask의
+                            배열 축 순서 및 공간 정보가 일치하지 않으면,
+                            생성된 3D 구조의 위치와 방향이
+                            원본 의료영상과 달라질 수 있습니다.
+                        </p>
+
+                    </div>
+
+                    <div class="context-item">
+
+                        <span>ENGINEERING DECISION</span>
+
+                        <p>
+                            Mask를 CT 기준 공간에 정렬하고,
+                            Spacing, Direction, Origin을 반영하여
+                            Mesh의 정점 좌표를 의료영상의
+                            물리적 좌표계로 변환했습니다.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- Spatial Coordinate Alignment -->
+
+            <article class="implementation-card">
+
+                <div class="implementation-heading">
+
+                    <span>02 / SPATIAL COORDINATE ALIGNMENT</span>
+
+                    <h3>Voxel to Physical Space.</h3>
+
+                    <p>
+                        배열 인덱스와 실제 의료영상 공간 좌표의 차이를
+                        고려한 데이터 변환 과정입니다.
+                    </p>
+
+                </div>
+
+                <div class="coordinate-grid">
+
+                    <div class="coordinate-card">
+
+                        <span>INPUT COORDINATES</span>
+
+                        <svg viewBox="0 0 240 180"
+                            aria-hidden="true">
+
+                            <g fill="#E8EDF9"
+                            fill-opacity="0.7"
+                            stroke="#A8B7D9">
+
+                                <path d="M40 65 L125 30 L190 65 L105 100 Z"/>
+                                <path d="M40 90 L125 55 L190 90 L105 125 Z"/>
+                                <path d="M40 115 L125 80 L190 115 L105 150 Z"/>
+
+                            </g>
+
+                            <g stroke-width="2.5">
+
+                                <path d="M105 125 H215"
+                                    stroke="#C45D56"/>
+
+                                <path d="M105 125 L35 165"
+                                    stroke="#469D80"/>
+
+                                <path d="M105 125 V15"
+                                    stroke="#516AC8"/>
+
+                            </g>
+
+                            <g font-size="13" font-weight="700">
+
+                                <text x="220" y="130" fill="#C45D56">X</text>
+                                <text x="20" y="170" fill="#469D80">Y</text>
+                                <text x="112" y="20" fill="#516AC8">Z</text>
+
+                            </g>
+
+                        </svg>
+
+                        <h4>Voxel Coordinates</h4>
+
+                        <p>
+                            배열 인덱스 기반의 영상 데이터 좌표
+                        </p>
+
+                    </div>
+
+                    <div class="coordinate-card">
+
+                        <span>OUTPUT COORDINATES</span>
+
+                        <svg viewBox="0 0 240 180"
+                            aria-hidden="true">
+
+                            <g transform="rotate(-17 120 90)"
+                            fill="#E8EDF9"
+                            fill-opacity="0.7"
+                            stroke="#A8B7D9">
+
+                                <path d="M40 65 L125 30 L190 65 L105 100 Z"/>
+                                <path d="M40 90 L125 55 L190 90 L105 125 Z"/>
+                                <path d="M40 115 L125 80 L190 115 L105 150 Z"/>
+
+                            </g>
+
+                            <g stroke-width="2.5">
+
+                                <path d="M105 125 L215 91"
+                                    stroke="#C45D56"/>
+
+                                <path d="M105 125 L45 170"
+                                    stroke="#469D80"/>
+
+                                <path d="M105 125 L72 15"
+                                    stroke="#516AC8"/>
+
+                            </g>
+
+                            <g font-size="13" font-weight="700">
+
+                                <text x="220" y="92" fill="#C45D56">X</text>
+                                <text x="30" y="174" fill="#469D80">Y</text>
+                                <text x="76" y="17" fill="#516AC8">Z</text>
+
+                            </g>
+
+                        </svg>
+
+                        <h4>Physical Coordinates</h4>
+
+                        <p>
+                            영상의 간격, 방향 및 원점을 반영한 좌표
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Spatial Metadata -->
+
+                <div class="spatial-property-grid">
+
+                    <div class="spatial-property">
+
+                        <i data-lucide="ruler"></i>
+
+                        <h4>Spacing</h4>
+
+                        <p>
+                            각 Voxel 사이의 물리적 간격을 반영합니다.
+                        </p>
+
+                    </div>
+
+                    <div class="spatial-property">
+
+                        <i data-lucide="compass"></i>
+
+                        <h4>Direction</h4>
+
+                        <p>
+                            의료영상의 공간 방향을 반영합니다.
+                        </p>
+
+                    </div>
+
+                    <div class="spatial-property">
+
+                        <i data-lucide="crosshair"></i>
+
+                        <h4>Origin</h4>
+
+                        <p>
+                            의료영상의 물리적 시작 위치를 반영합니다.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="coordinate-formula">
+
+                    <span>PHYSICAL COORDINATE TRANSFORMATION</span>
+
+                    <code>P = O + D × (S ⊙ I)</code>
+
+                    <div class="formula-legend">
+
+                        <span>P : Physical Position</span>
+                        <span>O : Origin</span>
+                        <span>D : Direction</span>
+                        <span>S : Spacing</span>
+                        <span>I : Voxel Index</span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- Actual 3D Processing Code -->
+
+            <article class="implementation-card">
+
+                <div class="implementation-heading">
+
+                    <span>03 / CORE IMPLEMENTATION</span>
+
+                    <h3>Mesh Reconstruction & GLB Generation</h3>
+
+                    <p>
+                        Segmentation Mask에서 표면 Mesh를 생성하고
+                        공간 좌표를 변환하는 실제 구현 코드입니다.
+                    </p>
+
+                </div>
+
+                <div class="implementation-code">
+
+                    <div class="code-toolbar">
+
+                        <div class="code-file">
+                            <i data-lucide="file-code"></i>
+                            <span>ai/ccta_rendering.py</span>
+                        </div>
+
+                        <button type="button"
+                                class="copy-code"
+                                aria-label="Copy Python code">
+
+                            <i data-lucide="copy"></i>
+                            <span>Copy</span>
+
+                        </button>
+
+                    </div>
+
+                    <pre><code class="language-python">spacing_xyz = image.GetSpacing()
+
+            vertices, faces, _normals, _values = marching_cubes(
+                mask,
+                level=0.5,
+                spacing=(
+                    spacing_xyz[2],
+                    spacing_xyz[1],
+                    spacing_xyz[0],
+                ),
+            )
+
+            vertices = vertices[:, [2, 1, 0]]
+
+            direction = np.asarray(
+                image.GetDirection(),
+                dtype=float,
+            ).reshape(3, 3)
+
+            origin = np.asarray(
+                image.GetOrigin(),
+                dtype=float,
+            )
+
+            vertices = vertices @ direction.T + origin
+
+            mesh = trimesh.Trimesh(
+                vertices=vertices,
+                faces=faces,
+                process=False,
+            )
+
+            if name in {"heart", "aorta"}:
+                trimesh.smoothing.filter_laplacian(
+                    mesh,
+                    iterations=5,
+                    volume_constraint=True,
+                )</code></pre>
+
+                    <div class="code-caption">
+                        실제 프로젝트 코드 발췌 · 가독성을 위한 줄바꿈 적용
+                    </div>
+
+                </div>
+
+
+                <div class="implementation-explanation">
+
+                    <h4>How It Works</h4>
+
+                    <div class="explanation-row">
+
+                        <span>01</span>
+
+                        <div>
+
+                            <strong>Mask Resampling</strong>
+
+                            <p>
+                                CT 영상과 Mask의 공간 정보가 일치하도록
+                                CT 기준으로 Mask를 정렬합니다.
+                                이 과정은 Mesh 생성 이전에 수행됩니다.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="explanation-row">
+
+                        <span>02</span>
+
+                        <div>
+
+                            <strong>Marching Cubes</strong>
+
+                            <p>
+                                3차원 Mask의 경계면에서
+                                정점과 삼각형 면을 추출하여
+                                표면 Mesh를 생성합니다.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="explanation-row">
+
+                        <span>03</span>
+
+                        <div>
+
+                            <strong>Axis Reordering</strong>
+
+                            <p>
+                                NumPy 영상 배열의 ZYX 축 순서와
+                                의료영상 공간 정보의 XYZ 축 순서 차이를
+                                고려하여 정점 좌표의 축을 재배열합니다.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="explanation-row">
+
+                        <span>04</span>
+
+                        <div>
+
+                            <strong>Physical Coordinate Transformation</strong>
+
+                            <p>
+                                Spacing을 반영한 정점에 Direction과
+                                Origin을 적용하여 의료영상의
+                                물리적 공간 좌표로 변환합니다.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="explanation-row">
+
+                        <span>05</span>
+
+                        <div>
+
+                            <strong>Selective Mesh Smoothing</strong>
+
+                            <p>
+                                심장과 대동맥 Mesh에는
+                                Laplacian Smoothing을 적용합니다.
+                                관상동맥과 석회화 구조에는
+                                동일한 평활화를 적용하지 않습니다.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="explanation-row">
+
+                        <span>06</span>
+
+                        <div>
+
+                            <strong>GLB Export & Storage</strong>
+
+                            <p>
+                                생성한 3D 데이터를 GLB 파일로 변환하고,
+                                RustFS에 저장하여 의료진 서비스에서
+                                활용할 수 있도록 연결합니다.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="implementation-result">
+
+                    <i data-lucide="check-circle"></i>
+
+                    <div>
+
+                        <strong>Implementation Outcome</strong>
+
+                        <p>
+                            CT와 Mask의 공간 좌표 차이를 고려한
+                            3D Mesh 생성 및 결과 파일 저장
+                            파이프라인을 구현했습니다.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- Personal Contribution -->
+
+            <div class="engineering-summary">
+
+                <div class="engineering-summary-icon">
+                    <i data-lucide="box"></i>
+                </div>
+
+                <div>
+
+                    <span>PERSONAL ENGINEERING CONTRIBUTION</span>
+
+                    <h3>Connecting Medical Data to 3D.</h3>
+
+                    <p>
+                        AI 모델이 생성한 결과를 실제 서비스에서
+                        활용하기 위해 의료영상 공간 정보와
+                        데이터 변환 과정을 이해하고,
+                        3D 결과 생성 및 저장 로직을 구현했습니다.
+                    </p>
+
+                    <p>
+                        개인 담당 범위는 의료 데이터 연동,
+                        CT·Mask 공간 정렬, Mesh 및 GLB 생성 등
+                        백엔드 데이터 처리 과정입니다.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <p class="engineering-scope-caption">
+                AI 모델 학습 및 프론트엔드 3D 뷰어 구현과
+                백엔드 3D 데이터 생성은 구분하여 설명합니다.
+                본 내용은 임상적 정확도 검증이 아닌
+                데이터 처리 구현에 대한 기술 설명입니다.
+            </p>
+
+
+                <a class="document-link"
+                   href="https://github.com/Kimyuri420/cdss-portfolio/blob/main/projects/dugn/medical-data.md"
+                   target="_blank" rel="noopener noreferrer">
+                    View Medical Data Documentation
+                    <i data-lucide="arrow-up-right"></i>
+                </a>
+
+            </section>
+
+            <!-- 04. 비동기 처리 및 인프라 -->
+            <section id="infrastructure" class="section">
+
+                <div class="section-heading">
+                    <span class="section-number">04 / ASYNC & INFRASTRUCTURE</span>
+                    <h2>Async & Infrastructure</h2>
+                    <p>비동기 작업 처리와 다중 서비스 실행 환경</p>
+                </div>
+
+                <div id="infrastructure-content">
+<article class="implementation-card">
+<div class="implementation-heading"><span>01 / ASYNCHRONOUS PROCESSING</span><h3>Decoupling Long-running Tasks.</h3><p>일반 API 요청과 장시간 분석 작업의 실행 책임을 분리합니다.</p></div>
+<div class="finish-diagram"><div class="finish-core">Django REST API<br><small>Analysis Request</small></div><div class="finish-arrow">↓</div><div class="finish-core">RabbitMQ<br><small>Message Broker</small></div><div class="finish-arrow">↓</div><div class="finish-branches"><div><b>clinical queue</b><div class="finish-arrow">↓</div><strong>Clinical Worker</strong><p>clinical-ai · 위험도 · SHAP</p></div><div><b>ccta queue</b><div class="finish-arrow">↓</div><strong>CCTA Worker</strong><p>TotalSegmentator · Docker</p></div></div><div class="finish-arrow">↓</div><div class="finish-core">Analysis Results &amp; Job Status<br><small>PostgreSQL · RustFS</small></div><p>Redis · Supporting Infrastructure (AOF 설정)</p></div><div class="finish-grid"><div class="finish-node"><i data-lucide="workflow"></i><strong>Celery</strong><p>백그라운드 작업 실행</p></div><div class="finish-node"><i data-lucide="network"></i><strong>RabbitMQ</strong><p>메시지 전달 및 작업 큐</p></div><div class="finish-node"><i data-lucide="database"></i><strong>Redis</strong><p>인메모리 데이터 저장 서비스</p></div><div class="finish-node"><i data-lucide="timer"></i><strong>Celery Beat</strong><p>매시간 SMS 알림 대상 확인</p></div></div>
+</article><article class="implementation-card">
+<div class="implementation-heading"><span>02 / TASK CONFIGURATION</span><h3>Celery Configuration & Scheduling</h3><p>Django 설정과 주기적 예약 알림 작업 연결</p></div>
+<div class="implementation-code"><div class="code-toolbar"><div class="code-file"><i data-lucide="file-code"></i><span>config/celery.py</span></div><button type="button" class="copy-code"><i data-lucide="copy"></i><span>Copy</span></button></div><pre><code>import os
+from celery import Celery
+os.environ.setdefault(&quot;DJANGO_SETTINGS_MODULE&quot;, &quot;config.settings&quot;)
+app = Celery(&quot;cdss&quot;)
+app.config_from_object(&quot;django.conf:settings&quot;, namespace=&quot;CELERY&quot;)
+app.autodiscover_tasks()
+# SMS reminder 대상 일정을 매시간 다시 확인
+app.conf.beat_schedule = {
+    &quot;queue-due-sms-reminders-hourly&quot;: {
+        &quot;task&quot;: &quot;notifications.tasks.queue_due_sms_reminders_task&quot;,
+        &quot;schedule&quot;: 3600.0,
+    },
+}</code></pre></div><p>CELERY 설정을 연결하고 작업 모듈을 자동 탐색합니다. Beat는 3600초마다 알림 확인 작업을 등록합니다.</p>
+</article><article class="implementation-card">
+<div class="implementation-heading"><span>03 / JOB LIFECYCLE</span><h3>Managing Analysis Jobs.</h3><p>분석 작업의 시작, 진행률, 결과 및 실패 상태 관리</p></div>
+<div class="finish-grid"><div class="finish-node"><i data-lucide="clipboard-list"></i><strong>01 · Request</strong><p>분석 요청 및 큐 전달</p></div><div class="finish-node"><i data-lucide="play"></i><strong>02 · start_job()</strong><p>Worker 작업 시작</p></div><div class="finish-node"><i data-lucide="activity"></i><strong>03 · update_job_progress()</strong><p>진행률 갱신</p></div><div class="finish-node"><i data-lucide="hard-drive"></i><strong>04 · upload_result_file()</strong><p>결과 파일 저장 및 save_ccta_result()</p></div><div class="finish-node"><i data-lucide="check-circle"></i><strong>05 · Result Available</strong><p>의료진 분석 결과 활용</p></div><div class="finish-node"><i data-lucide="alert-triangle"></i><strong>fail_job()</strong><p>오류 코드 및 메시지 기록</p></div></div><p class="finish-note">AI 분석 완료와 환자 결과 공개는 별도 상태입니다.</p>
+</article><article class="implementation-card">
+<div class="implementation-heading"><span>04 / CONTAINER INFRASTRUCTURE</span><h3>Multi-service Environment.</h3><p>compose.staging.yml · 14개 서비스</p></div>
+<h4 class="finish-sub">API & Application</h4><div class="finish-grid"><div class="finish-node"><i data-lucide="container"></i><strong>caddy</strong><p>Docker Compose service</p></div><div class="finish-node"><i data-lucide="container"></i><strong>web</strong><p>Docker Compose service</p></div><div class="finish-node"><i data-lucide="container"></i><strong>chatbot</strong><p>Docker Compose service</p></div></div><h4 class="finish-sub">Data & Storage</h4><div class="finish-grid"><div class="finish-node"><i data-lucide="container"></i><strong>db</strong><p>Docker Compose service</p></div><div class="finish-node"><i data-lucide="container"></i><strong>orthanc</strong><p>Docker Compose service</p></div><div class="finish-node"><i data-lucide="container"></i><strong>rustfs</strong><p>Docker Compose service</p></div></div><h4 class="finish-sub">Async & Messaging</h4><div class="finish-grid"><div class="finish-node"><i data-lucide="container"></i><strong>rabbitmq</strong><p>Docker Compose service</p></div><div class="finish-node"><i data-lucide="container"></i><strong>redis</strong><p>Docker Compose service</p></div><div class="finish-node"><i data-lucide="container"></i><strong>celery</strong><p>Docker Compose service</p></div><div class="finish-node"><i data-lucide="container"></i><strong>clinical-worker</strong><p>Docker Compose service</p></div><div class="finish-node"><i data-lucide="container"></i><strong>ccta-worker</strong><p>Docker Compose service</p></div><div class="finish-node"><i data-lucide="container"></i><strong>celery-beat</strong><p>Docker Compose service</p></div></div><h4 class="finish-sub">AI Integration</h4><div class="finish-grid"><div class="finish-node"><i data-lucide="container"></i><strong>clinical-ai</strong><p>Docker Compose service</p></div><div class="finish-node"><i data-lucide="container"></i><strong>xca-bridge</strong><p>Docker Compose service</p></div></div><h4 class="finish-sub">Persistent Volumes · 8</h4><div class="finish-grid"><div class="finish-node"><i data-lucide="database"></i><strong>postgres_data</strong><p>Named Volume</p></div><div class="finish-node"><i data-lucide="database"></i><strong>orthanc_data</strong><p>Named Volume</p></div><div class="finish-node"><i data-lucide="database"></i><strong>rustfs_data</strong><p>Named Volume</p></div><div class="finish-node"><i data-lucide="database"></i><strong>static_data</strong><p>Named Volume</p></div><div class="finish-node"><i data-lucide="database"></i><strong>caddy_data</strong><p>Named Volume</p></div><div class="finish-node"><i data-lucide="database"></i><strong>caddy_config</strong><p>Named Volume</p></div><div class="finish-node"><i data-lucide="database"></i><strong>rabbitmq_data_v3</strong><p>Named Volume</p></div><div class="finish-node"><i data-lucide="database"></i><strong>redis_data</strong><p>Named Volume</p></div></div><div class="finish-note">Google Cloud Platform · VM 실행 환경</div>
+</article><article class="implementation-card">
+<div class="implementation-heading"><span>05 / CLOUD EXPERIENCE</span><h3>Resolving Resource Bottlenecks.</h3><p>초기 4GB VM에서 발생한 처리 지연 대응</p></div>
+<div class="finish-grid"><div class="finish-node"><i data-lucide="memory-stick"></i><strong>BEFORE · 4 GB</strong><p>다중 서비스 및 영상 처리 중 지연 경험</p></div><div class="finish-node"><i data-lucide="server"></i><strong>AFTER · Upgraded</strong><p>VM 리소스 확장으로 실행 환경 제약 완화</p></div></div><p class="finish-note">정량 벤치마크는 수행하지 않았습니다. 인프라 구조는 팀 전체 구성이고 개인 기여는 백엔드·의료 데이터 연동 및 VM 문제 대응입니다.</p>
+</article>
+</div>
+
+                <a class="document-link"
+                   href="https://github.com/Kimyuri420/cdss-portfolio/blob/main/projects/dugn/async-infra.md"
+                   target="_blank" rel="noopener noreferrer">
+                    View Infrastructure Documentation
+                    <i data-lucide="arrow-up-right"></i>
+                </a>
+
+            </section>
+
+            <!-- 05. 문제 해결 -->
+            <section id="troubleshooting" class="section">
+
+                <div class="section-heading">
+                    <span class="section-number">05 / PROBLEM SOLVING</span>
+                    <h2>Troubleshooting</h2>
+                    <p>개발 과정에서 마주한 기술적 문제와 해결 과정</p>
+                </div>
+
+                <div id="troubleshooting-content">
+<details class="trouble-card"><summary><span>CASE 01 · 예약 일정 변경과 기존 예약 충돌</span></summary><div class="trouble-body"><h4>Problem</h4><p>근무 일정 변경 시 기존 예약이 무효화될 위험</p><h4>Root Cause / Risk</h4><p>예약과 가용 슬롯의 상태를 함께 고려해야 함</p><h4>Resolution</h4><p>30분 슬롯 생성, 휴무 반영, transaction.atomic 및 기존 슬롯 row lock, 활성 예약 충돌 검사</p><h4>Validation</h4><p>예약 변경·정원 관련 테스트 코드 확인. 동시성 전체 보장을 주장하지 않음</p><h4>Evidence</h4><p>appointments/services.py · appointments/tests.py</p></div></details><details class="trouble-card"><summary><span>CASE 02 · 의료진 서명과 환자 공개 조건 분리</span></summary><div class="trouble-body"><h4>Problem</h4><p>AI 완료만으로 환자에게 결과가 노출될 위험</p><h4>Root Cause / Risk</h4><p>분석 완료와 임상 승인 및 공개의 의미가 다름</p><h4>Resolution</h4><p>FINAL 서명, RELEASED 상태, 환자 소유권 및 철회 여부 검사</p><h4>Validation</h4><p>서명 전 공개 금지, 중복 공개 멱등성, 본인 결과 조회 테스트 코드 확인</p><h4>Evidence</h4><p>reports/patient_result_views.py · reports/test_unified_workflow.py</p></div></details><details class="trouble-card"><summary><span>CASE 03 · CT와 Segmentation Mask 공간 좌표 불일치</span></summary><div class="trouble-body"><h4>Problem</h4><p>3D 결과가 원본 영상 공간과 맞지 않는 문제</p><h4>Root Cause / Risk</h4><p>배열 축 순서와 물리 좌표의 spacing, direction, origin 차이</p><h4>Resolution</h4><p>CT 기준 resampling, zyx→xyz 변환, 물리 좌표 적용 및 GLB 생성</p><h4>Validation</h4><p>구현 코드 기준 검토. 임상 정확도 검증 수치는 없음</p><h4>Evidence</h4><p>ai/ccta_rendering.py</p></div></details><details class="trouble-card"><summary><span>CASE 04 · GCP VM 메모리 부족</span></summary><div class="trouble-body"><h4>Problem</h4><p>초기 4GB VM에서 처리 지연</p><h4>Root Cause / Risk</h4><p>다중 서비스와 영상 처리 작업의 자원 요구량</p><h4>Resolution</h4><p>VM 리소스 확장</p><h4>Validation</h4><p>실행 환경 개선 경험. 정량 측정 미수행</p><h4>Evidence</h4><p>compose.staging.yml · VM 운영 경험</p></div></details>
+</div>
+
+                <a class="document-link"
+                   href="https://github.com/Kimyuri420/cdss-portfolio/blob/main/projects/dugn/troubleshooting.md"
+                   target="_blank" rel="noopener noreferrer">
+                    View Troubleshooting Documentation
+                    <i data-lucide="arrow-up-right"></i>
+                </a>
+
+            </section>
+
+            <!-- 06. 검증 및 개인 기여 -->
+            <section id="validation" class="section">
+
+                <div class="section-heading">
+                    <span class="section-number">06 / ENGINEERING EVIDENCE</span>
+                    <h2>Validation & Contributions</h2>
+                    <p>실제 구현 코드와 테스트 시나리오를 기반으로 한 기술 증빙</p>
+                </div>
+
+                <div id="validation-content">
+<article class="implementation-card">
+<div class="implementation-heading"><span>01 / TEST EVIDENCE</span><h3>Validation Scenarios.</h3><p>확인한 테스트 코드 25개 메서드 · 실행 결과는 미검증</p></div>
+<div class="finish-grid"><div class="finish-node"><i data-lucide="calendar-check"></i><strong>Appointments · 10</strong><p>예약 승인, 정원, 일정, Firebase 연락처 검증</p></div><div class="finish-node"><i data-lucide="file-check"></i><strong>Unified Workflow · 11</strong><p>서명·공개 분리, 멱등성, 환자 접근, 서명 스냅샷</p></div><div class="finish-node"><i data-lucide="shield-check"></i><strong>Patient Result Views · 4</strong><p>XCA 첨부 스냅샷, CCTA fallback 및 판독 의견</p></div></div><div class="implementation-code"><div class="code-toolbar"><div class="code-file"><i data-lucide="file-code"></i><span>Backend test command</span></div><button type="button" class="copy-code"><i data-lucide="copy"></i><span>Copy</span></button></div><pre><code>python manage.py test appointments.tests reports.test_unified_workflow reports.test_patient_result_views</code></pre></div><p class="finish-note">백엔드 설정이 완료된 환경에서 실행하는 명령입니다. 테스트 통과 여부는 이 포트폴리오에서 주장하지 않습니다.</p>
+</article><article class="implementation-card">
+<div class="implementation-heading"><span>02 / PERSONAL CONTRIBUTIONS</span><h3>My Engineering Scope.</h3><p>직접 담당한 영역과 팀 협업 범위 구분</p></div>
+<div class="finish-grid"><div class="finish-node"><i data-lucide="calendar-days"></i><strong>Reservation & Schedule</strong><p>30분 슬롯, 휴무 및 예약 충돌 검사</p></div><div class="finish-node"><i data-lucide="lock-keyhole"></i><strong>Result Release</strong><p>서명·공개 상태 및 환자 접근 조건</p></div><div class="finish-node"><i data-lucide="database"></i><strong>Data Integration</strong><p>PostgreSQL · Orthanc · RustFS 연동</p></div><div class="finish-node"><i data-lucide="box"></i><strong>Medical 3D</strong><p>CT·Mask 공간 정렬 및 GLB 생성</p></div><div class="finish-node"><i data-lucide="message-square"></i><strong>Staff Workflow</strong><p>최근 업무, 채팅 및 협진 연동</p></div><div class="finish-node"><i data-lucide="cloud"></i><strong>Infrastructure Experience</strong><p>VM 리소스 문제 대응</p></div></div><p class="finish-note">AI 모델 학습 및 최종 React·Flutter 서비스는 팀 협업 범위입니다. 시연의 사전 계산 결과와 실시간 추론은 구분합니다.</p>
+</article>
+</div>
+
+                <a class="document-link"
+                   href="https://github.com/Kimyuri420/cdss-portfolio/blob/main/projects/dugn/validation.md"
+                   target="_blank" rel="noopener noreferrer">
+                    View Validation Documentation
+                    <i data-lucide="arrow-up-right"></i>
+                </a>
+
+            </section>
+
+            <!-- 프로젝트 산출물 -->
+            <section class="section project-materials">
+
+                <div class="section-heading">
+                    <span class="section-number">PROJECT RESOURCES</span>
+                    <h2>Explore More</h2>
+                </div>
+
+                <div class="resource-grid">
+
+                    <a class="resource-card"
+                       href="https://app.notion.com/p/3f60b387fad8816191acdb1eb0f7ac36"
+                       target="_blank" rel="noopener noreferrer">
+                        <i data-lucide="notebook-text"></i>
+                        <h3>Notion Portfolio</h3>
+                        <p>프로젝트 상세 기록</p>
+                        <i data-lucide="arrow-up-right"></i>
+                    </a>
+
+                    <a class="resource-card"
+                       href="https://drive.google.com/file/d/1jagyOOrqoHlLhwOtsjSue_Fl1Vzs5IBd/view?usp=drivesdk"
+                       target="_blank" rel="noopener noreferrer">
+                        <i data-lucide="presentation"></i>
+                        <h3>Presentation</h3>
+                        <p>최종 프로젝트 발표 자료</p>
+                        <i data-lucide="arrow-up-right"></i>
+                    </a>
+
+                    <a class="resource-card"
+                       href="https://drive.google.com/file/d/1mQFj2CJv3jKBsEk-Uw4sgLknAnSkTGPL/view?usp=drivesdk"
+                       target="_blank" rel="noopener noreferrer">
+                        <i data-lucide="play-circle"></i>
+                        <h3>Demonstration</h3>
+                        <p>서비스 시연 영상 · 접근 제한</p>
+                        <i data-lucide="arrow-up-right"></i>
+                    </a>
+
+                </div>
+
+            </section>
+
+            <!-- 하단 푸터 -->
+            <footer class="footer">
+                <div>
+                    <h3>DUGN<span>.</span></h3>
+                    <p>Engineering for Reliable Medical Data</p>
+                </div>
+
+                <a href="../../index.html">
+                    <i data-lucide="arrow-left"></i>
+                    Back to Portfolio
+                </a>
+            </footer>
+
+        </main>
+
+    </div>
+
+    <!-- 상단 이동 버튼 -->
+    <button id="back-to-top" class="back-to-top" aria-label="페이지 상단으로 이동">
+        <i data-lucide="arrow-up"></i>
+    </button>
+
+</body>
+</html>
