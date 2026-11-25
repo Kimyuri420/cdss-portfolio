@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#F6F3E7">
   <meta name="description" content="의료진이 환자를 찾고, 관상동맥 영상과 분석 결과를 한 화면에서 확인하는 웹 프로젝트입니다.">
-  <title>ANGIO XAI | 김유리 개발 포트폴리오</title>
+  <title>ANGIO XAI | 김유리 백엔드 개발 포트폴리오</title>
   <link rel="stylesheet" href="../../assets/project-detail.css">
   <script src="../../assets/project-detail.js" defer></script>
 </head>
@@ -13,7 +13,7 @@
   <a class="skip-link" href="#summary-main">본문으로 이동</a>
   <header class="topbar">
     <div class="page-wrap topbar-inner">
-      <a class="brand" href="../../index.html">김유리 | 개발 포트폴리오</a>
+      <a class="brand" href="../../index.html">김유리 | 백엔드 개발 포트폴리오</a>
       <a class="all-projects" href="../../index.html#projects">프로젝트 목록</a>
     </div>
   </header>
@@ -59,6 +59,21 @@
         <p class="project-note">데모의 영상과 환자 정보는 샘플입니다.</p>
       </section>
 
+      <section id="implementation-case" aria-labelledby="implementation-case-title">
+        <h2 id="implementation-case-title">대표 구현 사례</h2>
+        <article class="case-card">
+          <div>
+            <h3>영상과 병변 표시의 위치 맞추기</h3>
+            <a class="case-link" href="./engineering.html#viewer">샘플 뷰어에서 체험하기</a>
+          </div>
+          <dl class="case-notes">
+            <div><dt>문제</dt><dd>영상을 확대하거나 옮길 때 병변 위치를 표시하는 상자도 영상과 함께 움직여야 했습니다.</dd></div>
+            <div><dt>구현</dt><dd>영상과 병변 표시를 같은 영역에 배치하고, 확대 배율과 이동 위치를 공통으로 적용했습니다.</dd></div>
+            <div><dt>예시</dt><dd>샘플 뷰어를 확대하거나 끌어서 옮겨보면, 병변 표시가 영상에 맞춰 움직이는 모습을 볼 수 있습니다.</dd></div>
+          </dl>
+        </article>
+      </section>
+
       <section id="project-resources" aria-labelledby="project-resources-title">
         <h2 id="project-resources-title">프로젝트 자료</h2>
         <ul class="resource-list" role="list">
@@ -71,7 +86,7 @@
   </main>
 
   <footer class="footer">
-    <div class="page-wrap">김유리 · 개발 포트폴리오</div>
+    <div class="page-wrap">김유리 · 백엔드 개발 포트폴리오</div>
   </footer>
 </body>
 </html>
