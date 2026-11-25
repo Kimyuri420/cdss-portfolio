@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#F6F3E7">
   <meta name="description" content="의료진의 진료 일정부터 검사 결과의 판독, 서명, 환자 조회까지 연결한 서비스입니다.">
-  <title>DUGN | 김유리 개발 포트폴리오</title>
+  <title>DUGN | 김유리 백엔드 개발 포트폴리오</title>
   <link rel="stylesheet" href="../../assets/project-detail.css">
   <script src="../../assets/project-detail.js" defer></script>
 </head>
@@ -13,7 +13,7 @@
   <a class="skip-link" href="#summary-main">본문으로 이동</a>
   <header class="topbar">
     <div class="page-wrap topbar-inner">
-      <a class="brand" href="../../index.html">김유리 | 개발 포트폴리오</a>
+      <a class="brand" href="../../index.html">김유리 | 백엔드 개발 포트폴리오</a>
       <a class="all-projects" href="../../index.html#projects">프로젝트 목록</a>
     </div>
   </header>
@@ -59,6 +59,21 @@
         <p class="project-note">AI 모델과 의료진 웹·환자 앱은 팀 협업 범위입니다.</p>
       </section>
 
+      <section id="implementation-case" aria-labelledby="implementation-case-title">
+        <h2 id="implementation-case-title">대표 구현 사례</h2>
+        <article class="case-card">
+          <div>
+            <h3>기존 예약을 지키는 일정 변경</h3>
+            <a class="case-link" href="./engineering.html#backend">예약 처리 코드 보기</a>
+          </div>
+          <dl class="case-notes">
+            <div><dt>문제</dt><dd>진료 시간을 줄이면 이미 접수된 예약이 새 진료 시간 밖에 남을 수 있었습니다.</dd></div>
+            <div><dt>구현</dt><dd>트랜잭션 안에서 기존 예약 슬롯을 잠그고, 변경한 일정에서 활성 예약을 유지할 수 있는지 검사했습니다.</dd></div>
+            <div><dt>예시</dt><dd>17시 예약이 남아 있을 때 진료 종료를 16시로 바꾸려 하면, 서버가 변경을 거절하고 기존 예약을 유지합니다.</dd></div>
+          </dl>
+        </article>
+      </section>
+
       <section id="project-resources" aria-labelledby="project-resources-title">
         <h2 id="project-resources-title">프로젝트 자료</h2>
         <ul class="resource-list" role="list">
@@ -71,7 +86,7 @@
   </main>
 
   <footer class="footer">
-    <div class="page-wrap">김유리 · 개발 포트폴리오</div>
+    <div class="page-wrap">김유리 · 백엔드 개발 포트폴리오</div>
   </footer>
 </body>
 </html>

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#F6F3E7">
   <meta name="description" content="의료진이 한 앱에서 환자를 조회하고, 협진에 답변하고, 일정과 메모를 관리할 수 있도록 만든 모바일 프로젝트입니다.">
-  <title>VENA | 김유리 개발 포트폴리오</title>
+  <title>VENA | 김유리 백엔드 개발 포트폴리오</title>
   <link rel="stylesheet" href="../../assets/project-detail.css">
   <script src="../../assets/project-detail.js" defer></script>
 </head>
@@ -13,7 +13,7 @@
   <a class="skip-link" href="#summary-main">본문으로 이동</a>
   <header class="topbar">
     <div class="page-wrap topbar-inner">
-      <a class="brand" href="../../index.html">김유리 | 개발 포트폴리오</a>
+      <a class="brand" href="../../index.html">김유리 | 백엔드 개발 포트폴리오</a>
       <a class="all-projects" href="../../index.html#projects">프로젝트 목록</a>
     </div>
   </header>
@@ -59,6 +59,21 @@
         <p class="project-note">웹 데모는 가상 데이터로 앱의 동작을 재현합니다.</p>
       </section>
 
+      <section id="implementation-case" aria-labelledby="implementation-case-title">
+        <h2 id="implementation-case-title">대표 구현 사례</h2>
+        <article class="case-card">
+          <div>
+            <h3>협진 요청의 진행 상태 표시</h3>
+            <a class="case-link" href="./engineering.html#consultationDemo">협진 데모에서 체험하기</a>
+          </div>
+          <dl class="case-notes">
+            <div><dt>문제</dt><dd>의료진이 받은 협진 요청 중 아직 검토하지 않은 것과 답변을 마친 것을 구분해야 했습니다.</dd></div>
+            <div><dt>구현</dt><dd>요청 상태를 대기·검토·완료로 표시하고, 상태 변경이나 답변 등록 후 서버가 반환한 요청 정보를 목록에 반영했습니다.</dd></div>
+            <div><dt>예시</dt><dd>가상 요청에서 자료를 확인하고 답변을 등록하면, 화면의 상태 표시가 검토 중에서 답변 완료로 바뀝니다.</dd></div>
+          </dl>
+        </article>
+      </section>
+
       <section id="project-resources" aria-labelledby="project-resources-title">
         <h2 id="project-resources-title">프로젝트 자료</h2>
         <ul class="resource-list" role="list">
@@ -71,7 +86,7 @@
   </main>
 
   <footer class="footer">
-    <div class="page-wrap">김유리 · 개발 포트폴리오</div>
+    <div class="page-wrap">김유리 · 백엔드 개발 포트폴리오</div>
   </footer>
 </body>
 </html>

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#F6F3E7">
   <meta name="description" content="안구 데이터를 활용해 당뇨·고혈압 예측 가능성을 탐색하고, 분석 결과를 웹 서비스에 연결한 팀 프로젝트입니다.">
-  <title>EYE TO AI | 김유리 개발 포트폴리오</title>
+  <title>EYE TO AI | 김유리 백엔드 개발 포트폴리오</title>
   <link rel="stylesheet" href="../../assets/project-detail.css">
   <script src="../../assets/project-detail.js" defer></script>
 </head>
@@ -13,7 +13,7 @@
   <a class="skip-link" href="#summary-main">본문으로 이동</a>
   <header class="topbar">
     <div class="page-wrap topbar-inner">
-      <a class="brand" href="../../index.html">김유리 | 개발 포트폴리오</a>
+      <a class="brand" href="../../index.html">김유리 | 백엔드 개발 포트폴리오</a>
       <a class="all-projects" href="../../index.html#projects">프로젝트 목록</a>
     </div>
   </header>
@@ -59,6 +59,21 @@
         <p class="project-note">의료 진단용 검증을 거치지 않은 모델 실험입니다.</p>
       </section>
 
+      <section id="implementation-case" aria-labelledby="implementation-case-title">
+        <h2 id="implementation-case-title">대표 구현 사례</h2>
+        <article class="case-card">
+          <div>
+            <h3>가입과 의료진 승인 분리</h3>
+            <a class="case-link" href="./engineering.html#engineering">인증 흐름과 구현 보기</a>
+          </div>
+          <dl class="case-notes">
+            <div><dt>문제</dt><dd>가입 신청을 받는 것과 의료진이 서비스를 이용할 수 있도록 승인하는 일을 구분해야 했습니다.</dd></div>
+            <div><dt>구현</dt><dd>가입한 의료진은 승인 대기로 두고, 관리자가 허용한 뒤 일반 로그인에서 계정의 승인 상태와 역할을 확인하도록 했습니다.</dd></div>
+            <div><dt>예시</dt><dd>승인 대기 중인 의료진은 일반 로그인이 제한되고, 승인된 의료진은 인증을 통과하면 의료진 대시보드로 이동합니다.</dd></div>
+          </dl>
+        </article>
+      </section>
+
       <section id="project-resources" aria-labelledby="project-resources-title">
         <h2 id="project-resources-title">프로젝트 자료</h2>
         <ul class="resource-list" role="list">
@@ -71,7 +86,7 @@
   </main>
 
   <footer class="footer">
-    <div class="page-wrap">김유리 · 개발 포트폴리오</div>
+    <div class="page-wrap">김유리 · 백엔드 개발 포트폴리오</div>
   </footer>
 </body>
 </html>
